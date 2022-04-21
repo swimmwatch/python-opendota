@@ -1,0 +1,10 @@
+templateDir: "/local/custom-template"
+packageName: "python_opendota"
+projectName: "python-opendota"
+files:
+  pyproject.mustache:
+    templateType: SupportingFiles
+    destinationFilename: pyproject.toml
+  flake8.mustache:
+    templateType: SupportingFiles
+    destinationFilename: .flake8
