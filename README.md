@@ -17,9 +17,9 @@ Python >=3.6
 You can install directly using:
 
 ```sh
-pip install git+https://github.com/swimwmatch/python-opendota.git
+pip install git+https://github.com/swimmwatch/python-opendota.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/swimwmatch/python-opendota.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/swimmwatch/python-opendota.git`)
 
 or:
 

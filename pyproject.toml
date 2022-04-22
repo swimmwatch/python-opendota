@@ -7,8 +7,8 @@ maintainers = ["Dmitry Vasiliev <contact.vasiliev.dmitry@gmail.com>"]
 keywords = ["OpenAPI", "OpenAPI-Generator", "OpenDota API"]
 readme = "README.md"
 homepage = "https://docs.opendota.com/"
-repository = "https://github.com/swimwmatch/python-opendota"
-documentation = "https://github.com/swimwmatch/python-opendota#documentation-for-api-endpoints"
+repository = "https://github.com/swimmwatch/python-opendota"
+documentation = "https://github.com/swimmwatch/python-opendota#documentation-for-api-endpoints"
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
