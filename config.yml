@@ -3,6 +3,7 @@ packageName: "python_opendota"
 projectName: "python-opendota"
 gitRepoId: "python-opendota"
 gitUserId: "swimmwatch"
+packageUrl: "https://pypi.org/project/python-opendota/"
 files:
   openapi-generator_APP_VERSION.mustache:
     templateType: SupportingFiles
