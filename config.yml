@@ -2,6 +2,10 @@ templateDir: "/local/custom-template"
 packageName: "python_opendota"
 projectName: "python-opendota"
 files:
+  openapi-generator_APP_VERSION.mustache:
+    templateType: SupportingFiles
+    folder: .openapi-generator
+    destinationFilename: APP_VERSION
   pyproject.mustache:
     templateType: SupportingFiles
     destinationFilename: pyproject.toml
