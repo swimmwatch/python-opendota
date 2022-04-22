@@ -1,0 +1,17 @@
+name: "Generate SDK"
+description: "Generate SDK and remove unused template files"
+
+inputs:
+  package-version:
+    required: true
+    description: "Python package version"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Generate SDK"
+      run: utils/generate.sh ${{inputs.package-version}}
+      shell: bash
+    - name: "Remove unused files"
+      run: utils/clear.sh
+      shell: bash
