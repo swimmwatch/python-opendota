@@ -1,6 +1,8 @@
 templateDir: "/local/custom-template"
 packageName: "python_opendota"
 projectName: "python-opendota"
+gitRepoId: "python-opendota"
+gitUserId: "swimwmatch"
 files:
   openapi-generator_APP_VERSION.mustache:
     templateType: SupportingFiles
