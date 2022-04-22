@@ -197,4 +197,3 @@ python_opendota/model/team_players_response.py
 python_opendota/model_utils.py
 python_opendota/models/__init__.py
 python_opendota/rest.py
-setup.py
