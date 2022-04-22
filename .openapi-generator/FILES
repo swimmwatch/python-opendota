@@ -1,8 +1,6 @@
 .flake8
 .gitignore
-.gitlab-ci.yml
 .openapi-generator/APP_VERSION
-.travis.yml
 README.md
 docs/BenchmarksApi.md
 docs/BenchmarksResponse.md
@@ -96,7 +94,6 @@ docs/TeamHeroesResponse.md
 docs/TeamObjectResponse.md
 docs/TeamPlayersResponse.md
 docs/TeamsApi.md
-git_push.sh
 pyproject.toml
 python_opendota/__init__.py
 python_opendota/api/__init__.py
@@ -200,8 +197,4 @@ python_opendota/model/team_players_response.py
 python_opendota/model_utils.py
 python_opendota/models/__init__.py
 python_opendota/rest.py
-requirements.txt
-setup.cfg
 setup.py
-test-requirements.txt
-tox.ini
