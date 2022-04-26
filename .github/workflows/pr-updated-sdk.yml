@@ -1,0 +1,89 @@
+name: "Create PR if OpenDota API has been updated"
+
+on:
+#  schedule:
+#    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+
+jobs:
+  quick-check-api-update:
+    name: "Quick check if the API has been updated"
+    runs-on: ubuntu-latest
+    outputs:
+      is_diff_version: ${{steps.compare_version_res.outputs.is_diff_version}}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "Download new OpenDota API spec"
+        run: wget https://api.opendota.com/api --output-document spec.json
+      - name: "Read specifications content"
+        id: spec_contents
+        run: |
+          curr_spec_content="$(cat .openapi-generator/spec.json)"
+          new_spec_content="$(cat spec.json)"
+          echo "::set-output name=curr_spec_content::$curr_spec_content"
+          echo "::set-output name=new_spec_content::$new_spec_content"
+      - name: "Compare API versions between downloaded specification and current"
+        id: compare_version_res
+        run: |
+          curr_version="${{fromJson(steps.spec_contents.outputs.curr_spec_content).info.version}}"
+          new_version="${{fromJson(steps.spec_contents.outputs.new_spec_content).info.version}}"
+          if [[ $curr_version == $new_version ]]; then
+            echo "::set-output name=is_diff_version::false"
+          else
+            echo "::set-output name=is_diff_version::true"
+          fi
+      - name: "Upload downloaded specification for next job"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "downloaded_spec"
+          path: "spec.json"
+  diff-spec:
+    name: "Find difference between downloaded specification and current"
+    runs-on: ubuntu-latest
+    needs:
+      - quick-check-api-update
+    outputs:
+      state: ${{steps.compare_state.outputs.state}}
+    if: needs.quick-check-api-update.outputs.is_diff_version == 'true'
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "Get downloaded specification from 'quick-check-api-update' job"
+        uses: actions/download-artifact@v3
+        with:
+          name: "downloaded_spec"
+      - name: "Compare downloaded specification and current"
+        uses: .github/actions/compare-openapi-specs
+        id: compare_state
+        with:
+          old-spec-path: ".openapi-generator/spec.json"
+          new-spec-path: "spec.json"
+  create-pr:
+    name: "Create PR"
+    runs-on: ubuntu-latest
+    needs:
+      - diff-spec
+    if: needs.diff-spec.outputs.state != 'no_changes'
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "Get downloaded specification from 'quick-check-api-update' job"
+        uses: actions/download-artifact@v3
+        with:
+          name: "downloaded_spec"
+      - name: "Update old specification file"
+        run: mv spec.json .openapi-generator/spec.json
+      - name: "Generate SDK"
+        uses: .github/actions/generate-sdk
+        with:
+          package-version: "version"
+          spec-path: ".openapi-generator/spec.json"
+      - name: "Create PR"
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ""
+          branch: "release-v${{version}}"
+          title: ""
+          labels: ""
