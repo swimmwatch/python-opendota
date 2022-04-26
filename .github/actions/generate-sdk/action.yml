@@ -5,12 +5,15 @@ inputs:
   package-version:
     required: true
     description: "Python package version"
+  spec-path:
+    required: true
+    description: "OpenDota API specification filename"
 
 runs:
   using: "composite"
   steps:
     - name: "Generate SDK"
-      run: utils/generate.sh ${{inputs.package-version}}
+      run: utils/generate.sh ${{inputs.package-version}} ${{inputs.spec-path}}
       shell: bash
     - name: "Remove unused files"
       run: utils/clear.sh
