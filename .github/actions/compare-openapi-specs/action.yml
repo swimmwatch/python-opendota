@@ -1,0 +1,25 @@
+name: "Compare OpenAPI specifications"
+description: "Compare OpenAPI specifications using openapi-diff tool."
+
+inputs:
+  old-spec-path:
+    required: true
+    description: "Old specification file path"
+  new-spec-path:
+    required: true
+    description: "New specification file path"
+
+outputs:
+  state:
+    description: "Сomparison result"
+    value: ${{steps.check-diff-spec.outputs.state}}
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Find difference using openapi-diff tool"
+      id: check-diff-spec
+      run: |
+        res=$(utils/diff-spec.sh ${{inputs.old-spec-path}} ${{inputs.new-spec-path}})
+        echo "::set-output name=state::$res"
+      shell: bash
