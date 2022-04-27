@@ -5,10 +5,10 @@ gitRepoId: "python-opendota"
 gitUserId: "swimmwatch"
 packageUrl: "https://pypi.org/project/python-opendota/"
 files:
-  openapi-generator_APP_VERSION.mustache:
+  openapi-generator_PACKAGE_VERSION.mustache:
     templateType: SupportingFiles
     folder: .openapi-generator
-    destinationFilename: APP_VERSION
+    destinationFilename: PACKAGE_VERSION
   pyproject.mustache:
     templateType: SupportingFiles
     destinationFilename: pyproject.toml

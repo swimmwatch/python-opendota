@@ -1,6 +1,6 @@
 .flake8
 .gitignore
-.openapi-generator/APP_VERSION
+.openapi-generator/PACKAGE_VERSION
 README.md
 docs/BenchmarksApi.md
 docs/BenchmarksResponse.md
