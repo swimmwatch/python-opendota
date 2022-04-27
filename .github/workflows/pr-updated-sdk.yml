@@ -1,10 +1,8 @@
 name: "Create PR if OpenDota API has been updated"
 
 on:
-#  schedule:
-#    - cron: "0 0 * * *"
-  workflow_dispatch:
-
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   quick-check-api-update:
@@ -45,7 +43,8 @@ jobs:
     needs:
       - quick-check-api-update
     outputs:
-      state: ${{steps.compare_state.outputs.state}}
+      state: ${{steps.compare-state.outputs.state}}
+      markdown-changes: ${{steps.compare-state.outputs.markdown-changes}}
     if: needs.quick-check-api-update.outputs.is_diff_version == 'true'
     steps:
       - name: "Checkout"
@@ -56,7 +55,7 @@ jobs:
           name: "downloaded_spec"
       - name: "Compare downloaded specification and current"
         uses: ./.github/actions/compare-openapi-specs
-        id: compare_state
+        id: compare-state
         with:
           old-spec-path: ".openapi-generator/spec.json"
           new-spec-path: "spec.json"
@@ -75,15 +74,31 @@ jobs:
           name: "downloaded_spec"
       - name: "Update old specification file"
         run: mv spec.json .openapi-generator/spec.json
+      - name: "Read PACKAGE_VERSION file"
+        id: curr-package-version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ".openapi-generator/PACKAGE_VERSION"
+      - name: "Detect appropriate new package version"
+        uses: ./.github/actions/update-package-version
+        id: update-version
+        with:
+          curr-package-version: ${{steps.curr-package-version.outputs.content}}
+          updated-state: ${{needs.diff-spec.outputs.state}}
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk
         with:
-          package-version: "version"
+          package-version: ${{steps.update-version.outputs.new-package-version}}
           spec-path: ".openapi-generator/spec.json"
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ""
-          branch: "release-v${{version}}"
-          title: ""
-          labels: ""
+          token: ${{secrets.GITHUB_TOKEN}}
+          base: "master"
+          branch: "release-v${{steps.update-version.outputs.new-package-version}}"
+          title: "Update package v${{steps.update-version.outputs.new-package-version}}"
+          labels: |
+            enhancement
+          body: ${{needs.diff-spec.outputs.markdown-changes}}
+          assignees: "swimmwatch"
+          committer: "GitHub <noreply@github.com>"
