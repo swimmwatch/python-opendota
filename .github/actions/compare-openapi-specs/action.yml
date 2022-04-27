@@ -13,6 +13,9 @@ outputs:
   state:
     description: "Сomparison result"
     value: ${{steps.check-diff-spec.outputs.state}}
+  markdown-changes:
+    description: "Changes content in markdown"
+    value: ${{steps.changes.outputs.content}}
 
 runs:
   using: "composite"
@@ -22,4 +25,12 @@ runs:
       run: |
         res=$(utils/diff-spec.sh ${{inputs.old-spec-path}} ${{inputs.new-spec-path}})
         echo "::set-output name=state::$res"
+      shell: bash
+    - name: "Read changes Markdown file file"
+      id: changes
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: "changes.md"
+    - name: "Remove changes.md"
+      run: rm changes.md
       shell: bash
