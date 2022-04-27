@@ -1,0 +1,17 @@
+templateDir: "/local/custom-template"
+packageName: "python_opendota"
+projectName: "python-opendota"
+gitRepoId: "python-opendota"
+gitUserId: "swimmwatch"
+packageUrl: "https://pypi.org/project/python-opendota/"
+files:
+  openapi-generator_PACKAGE_VERSION.mustache:
+    templateType: SupportingFiles
+    folder: .openapi-generator
+    destinationFilename: PACKAGE_VERSION
+  pyproject.mustache:
+    templateType: SupportingFiles
+    destinationFilename: pyproject.toml
+  flake8.mustache:
+    templateType: SupportingFiles
+    destinationFilename: .flake8
