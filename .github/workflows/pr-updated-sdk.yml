@@ -9,7 +9,7 @@ jobs:
     name: "Quick check if the API has been updated"
     runs-on: ubuntu-latest
     outputs:
-      is_diff_version: ${{steps.compare_version_res.outputs.is_diff_version}}
+      is-diff-version: ${{steps.compare_version_res.outputs.is_diff_version}}
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -45,7 +45,7 @@ jobs:
     outputs:
       state: ${{steps.compare-state.outputs.state}}
       markdown-changes: ${{steps.compare-state.outputs.markdown-changes}}
-    if: needs.quick-check-api-update.outputs.is_diff_version == 'true'
+    if: needs.quick-check-api-update.outputs.is-diff-version == 'true'
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
