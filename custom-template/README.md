@@ -1,0 +1,1 @@
+# Custom template for [openapi-generator](https://github.com/OpenAPITools/openapi-generator)

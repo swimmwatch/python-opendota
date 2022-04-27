@@ -1,0 +1,30 @@
+name: "Generate SDK"
+description: "Generate SDK and remove unused template files"
+
+inputs:
+  package-version:
+    required: true
+    description: "Python package version"
+  spec-path:
+    required: true
+    description: "OpenDota API specification filename"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Generate SDK"
+      run: utils/generate.sh ${{inputs.package-version}} ${{inputs.spec-path}}
+      shell: bash
+    - name: "Remove unused files"
+      run: utils/clear.sh
+      shell: bash
+    - name: "Setup Python"
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+    - name: "Install black and flake8"
+      run: pip install -r utils/requirements.txt
+      shell: bash
+    - name: "Format code using black"
+      run: black .
+      shell: bash
