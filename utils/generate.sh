@@ -7,7 +7,7 @@ SPEC_PATH="$2"
 
 docker run --rm \
   -v "${PWD}":/local openapitools/openapi-generator-cli generate \
-  --input-spec "$SPEC_PATH" \
+  --input-spec "/local/$SPEC_PATH" \
   --generator-name python \
   --template-dir /local/custom-template \
   --ignore-file-override /local/.openapi-generator-ignore \
