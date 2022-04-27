@@ -18,3 +18,13 @@ runs:
     - name: "Remove unused files"
       run: utils/clear.sh
       shell: bash
+    - name: "Setup Python"
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+    - name: "Install black and flake8"
+      run: pip install black flake8
+      shell: bash
+    - name: "Format code"
+      run: black .
+      shell: bash
