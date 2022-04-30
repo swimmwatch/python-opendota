@@ -95,8 +95,8 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-          base: "master"
-          branch: "release-v${{steps.update-version.outputs.new-package-version}}"
+          base: "dev"
+          branch: "update-v${{steps.update-version.outputs.new-package-version}}"
           title: "Update package v${{steps.update-version.outputs.new-package-version}}"
           labels: |
             enhancement
