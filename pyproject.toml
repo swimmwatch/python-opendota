@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "python-opendota"
-version = "1.0.1"
-description = "OpenDota API"
+version = "1.0.2"
+description = "Generated Python SDK for working with OpenDota API"
 authors = ["OpenAPI Generator community <team@openapitools.org>"]
 maintainers = ["Dmitry Vasiliev <contact.vasiliev.dmitry@gmail.com>"]
 keywords = ["OpenAPI", "OpenAPI-Generator", "OpenDota API"]
