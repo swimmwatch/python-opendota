@@ -44,8 +44,8 @@ jobs:
     needs:
       - quick-check-api-update
     outputs:
-      state: ${{steps.compare-state.outputs.state}}
-      markdown-changes: ${{steps.compare-state.outputs.markdown-changes}}
+      state: ${{steps.compare_state.outputs.state}}
+      markdown-changes: ${{steps.markdown_changes.outputs.content}}
     if: needs.quick-check-api-update.outputs.is-diff-version == 'true'
     steps:
       - name: "Checkout"
@@ -55,11 +55,17 @@ jobs:
         with:
           name: "downloaded_spec"
       - name: "Compare downloaded specification and current"
-        uses: ./.github/actions/compare-openapi-specs
-        id: compare-state
+        uses: swimmwatch/openapi-diff-action@v1
+        id: compare_state
         with:
-          old-spec-path: ".openapi-generator/spec.json"
-          new-spec-path: "spec.json"
+          old-spec: ".openapi-generator/spec.json"
+          new-spec: "spec.json"
+          markdown: "changes.md"
+      - name: "Read PACKAGE_VERSION file"
+        id: markdown_changes
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: "changes.md"
   create-pr:
     name: "Create PR"
     runs-on: ubuntu-latest
