@@ -2,6 +2,9 @@ name: "Get updated package version"
 description: "Generate appropriate new package version by current version and updated state."
 
 inputs:
+  current-version:
+    required: true
+    description: "Current version"
   updated-state:
     required: true
     description: "Updated state (no_changes, incompatible, compatible)"
@@ -14,26 +17,23 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: 'Get previous tag'
-      id: previous_tag
-      uses: WyriHaximus/github-action-get-previous-tag@v1
     - name: 'Get next possible versions'
       id: semvers
       uses: "WyriHaximus/github-action-next-semvers@v1"
       with:
-        version: ${{steps.previous_tag.outputs.tag}}
+        version: ${{inputs.current-version}}
     - name: "Find appropriate update version"
       run: |
-        new_package_version=""
+        new_package_version="";
         if [[ "${{inputs.updated-state}}" == 'compatible' ]]; then
-          new_package_version="${{steps.semvers.outputs.minor}}"
+          new_package_version="${{steps.semvers.outputs.minor}}";
         elif [[ "${{inputs.updated-state}}" == 'incompatible' ]]; then
-          new_package_version="${{steps.semvers.outputs.major}}"
+          new_package_version="${{steps.semvers.outputs.major}}";
         elif [[ "${{inputs.updated-state}}" == 'no_changes' ]]; then
-          new_package_version="${{steps.previous_tag.outputs.tag}}"
+          new_package_version="${{inputs.current-version}}";
         else
           echo "Invalid updated state. Expected values: 'no_changes', 'incompatible', 'compatible'.";
           exit 1;
         fi
-        echo "::set-output name=new_package_version::$new_package_version"
+        echo "::set-output name=new_package_version::$new_package_version";
       shell: bash
