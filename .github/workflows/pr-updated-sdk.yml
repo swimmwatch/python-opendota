@@ -87,7 +87,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: "Detect appropriate new package version"
-        uses: ./.github/actions/update-package-version
+        uses: swimmwatch/openapi-diff-semver-bump@v1
         id: updated-version
         with:
           package-version: ${{steps.previous-tag.outputs.tag}}
