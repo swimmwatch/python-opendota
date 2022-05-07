@@ -90,7 +90,7 @@ jobs:
         uses: ./.github/actions/update-package-version
         id: updated-version
         with:
-          current-version: ${{steps.previous-tag.outputs.tag}}
+          package-version: ${{steps.previous-tag.outputs.tag}}
           updated-state: ${{needs.diff-spec.outputs.state}}
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk

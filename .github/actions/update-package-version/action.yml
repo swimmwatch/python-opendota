@@ -2,9 +2,9 @@ name: "Get updated package version"
 description: "Generate appropriate new package version by current version and updated state."
 
 inputs:
-  current-version:
+  package-version:
     required: true
-    description: "Current version"
+    description: "Current package version"
   updated-state:
     required: true
     description: "Updated state (no_changes, incompatible, compatible)"
@@ -21,7 +21,7 @@ runs:
       id: semvers
       uses: "WyriHaximus/github-action-next-semvers@v1"
       with:
-        version: ${{inputs.current-version}}
+        version: ${{inputs.package-version}}
     - name: "Find appropriate update version"
       run: |
         new_package_version="";
@@ -33,7 +33,7 @@ runs:
             new_package_version="${{steps.semvers.outputs.major}}";
             ;;
           no_changes)
-            new_package_version="${{inputs.current-version}}";
+            new_package_version="${{inputs.package-version}}";
             ;;
           *)
             echo "Invalid updated state. Expected values: 'no_changes', 'incompatible', 'compatible'.";
