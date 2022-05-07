@@ -25,15 +25,21 @@ runs:
     - name: "Find appropriate update version"
       run: |
         new_package_version="";
-        if [[ "${{inputs.updated-state}}" == 'compatible' ]]; then
-          new_package_version="${{steps.semvers.outputs.minor}}";
-        elif [[ "${{inputs.updated-state}}" == 'incompatible' ]]; then
-          new_package_version="${{steps.semvers.outputs.major}}";
-        elif [[ "${{inputs.updated-state}}" == 'no_changes' ]]; then
-          new_package_version="${{inputs.current-version}}";
-        else
-          echo "Invalid updated state. Expected values: 'no_changes', 'incompatible', 'compatible'.";
-          exit 1;
-        fi
+        case "${{inputs.updated-state}}" in
+          compatible)
+            new_package_version="${{steps.semvers.outputs.minor}}";
+            ;;
+          incompatible)
+            new_package_version="${{steps.semvers.outputs.major}}";
+            ;;
+          no_changes)
+            new_package_version="${{inputs.current-version}}";
+            ;;
+          *)
+            echo "Invalid updated state. Expected values: 'no_changes', 'incompatible', 'compatible'.";
+            exit 1;
+            ;;
+        esac
+
         echo "::set-output name=new_package_version::$new_package_version";
       shell: bash
