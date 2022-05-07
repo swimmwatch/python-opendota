@@ -1,5 +1,5 @@
-name: "Get updated package version"
-description: "Generate appropriate new package version by current version and updated state."
+name: "Get OpenAPI updated package version"
+description: "A GitHub Action for getting appropriate semver OpenAPI package version."
 
 inputs:
   package-version:
@@ -7,7 +7,7 @@ inputs:
     description: "Current package version"
   updated-state:
     required: true
-    description: "Updated state (no_changes, incompatible, compatible)"
+    description: "Updated OpenAPI Diff state. Expected values: no_changes, incompatible, compatible"
 
 outputs:
   new-package-version:
