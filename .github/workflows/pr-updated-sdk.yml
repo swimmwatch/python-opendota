@@ -61,7 +61,7 @@ jobs:
           old-spec: ".openapi-generator/spec.json"
           new-spec: "spec.json"
           markdown: "changes.md"
-      - name: "Read PACKAGE_VERSION file"
+      - name: "Read changes.md file"
         id: markdown_changes
         uses: juliangruber/read-file-action@v1
         with:
