@@ -16,18 +16,21 @@ jobs:
         uses: actions/checkout@v3
       - name: "Download new OpenDota API spec"
         run: wget https://api.opendota.com/api --output-document spec.json
-      - name: "Read specifications content"
-        id: spec_contents
-        run: |
-          curr_spec_content="$(cat .openapi-generator/spec.json)"
-          new_spec_content="$(cat spec.json)"
-          echo "::set-output name=curr_spec_content::$curr_spec_content"
-          echo "::set-output name=new_spec_content::$new_spec_content"
+      - name: "Read current specification"
+        id: curr_spec
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ".openapi-generator/spec.json"
+      - name: "Read downloaded specification"
+        id: new_spec
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: "spec.json"
       - name: "Compare API versions between downloaded specification and current"
         id: compare_version_res
         run: |
-          curr_version="${{fromJson(steps.spec_contents.outputs.curr_spec_content).info.version}}"
-          new_version="${{fromJson(steps.spec_contents.outputs.new_spec_content).info.version}}"
+          curr_version="${{fromJson(steps.curr_spec.outputs.content).info.version}}"
+          new_version="${{fromJson(steps.new_spec.outputs.content).info.version}}"
           if [[ $curr_version == $new_version ]]; then
             echo "::set-output name=is_diff_version::false"
           else
