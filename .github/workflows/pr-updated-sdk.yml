@@ -18,7 +18,7 @@ jobs:
         run: wget https://api.opendota.com/api --output-document spec.json
       - name: "Compare OpenAPI specifications version"
         id: compare_version_res
-        uses: swimmwatch/openapi-compare-version@v1
+        uses: swimmwatch/openapi-compare-version@v1.0.1
         with:
           current-spec: ".openapi-generator/spec.json"
           new-spec: "spec.json"
@@ -44,7 +44,7 @@ jobs:
         with:
           name: "downloaded_spec"
       - name: "Compare downloaded specification and current"
-        uses: swimmwatch/openapi-diff-action@v1
+        uses: swimmwatch/openapi-diff-action@v1.0.0
         id: compare_state
         with:
           old-spec: ".openapi-generator/spec.json"
@@ -76,7 +76,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: "Detect appropriate new package version"
-        uses: swimmwatch/openapi-diff-semver-bump@v1
+        uses: swimmwatch/openapi-diff-semver-bump@v1.0.1
         id: updated-version
         with:
           package-version: ${{steps.previous-tag.outputs.tag}}
