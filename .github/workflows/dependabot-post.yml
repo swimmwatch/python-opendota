@@ -22,7 +22,8 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.x"
-      - name: ""
+      - name: "Duplicate changes from Dependabot on pyproject template"
+        id: modify_state
         shell: python
         run: |
           import json
@@ -32,26 +33,35 @@ jobs:
 
           with open(PYPROJECT_TOML_TEMPLATE_PATH, 'r') as pyproject_template_file:
               pyproject_template_content = pyproject_template_file.read()
-              
+          
+          has_changes = False
           json_data = '${{steps.metadata.outputs.updated-dependencies-json}}'
           updated_dependencies = json.loads(json_data)
           for dependency in updated_dependencies:
               dependency_name = dependency['dependencyName']
               current_version = dependency['prevVersion']
               updated_version = dependency['newVersion']
-            
-              # replace version in pyproject.toml template content
-              version_str = f'{dependency_name} = "^%s"'
-              pyproject_template_content = pyproject_template_content.replace(
-                version_str % current_version, 
-                version_str % updated_version
-              )
+              package_ecosystem = dependency['packageEcosystem']
               
-          # rewrite updated pyproject.toml template file
-          with open(PYPROJECT_TOML_TEMPLATE_PATH, 'w') as pyproject_template_file:
-              pyproject_template_file.write(pyproject_template_content)
-      - name: "Commit changes"
+              # replace version in pyproject.toml template content
+              if package_ecosystem == 'pip':
+                  version_str = f'{dependency_name} = "^%s"'
+                  pyproject_template_content = pyproject_template_content.replace(
+                    version_str % current_version, 
+                    version_str % updated_version
+                  )
+                  has_changes = True
+          
+          if has_changes:
+              # rewrite updated pyproject.toml template file
+              with open(PYPROJECT_TOML_TEMPLATE_PATH, 'w') as pyproject_template_file:
+                  pyproject_template_file.write(pyproject_template_content)
+              print('::set-output name=has_changes::true')
+          else:
+              print('::set-output name=has_changes::false')
+      - name: "Commit pyproject template changes"
         uses: stefanzweifel/git-auto-commit-action@v4
+        if: ${{steps.modify_state.outputs.has_changes}} == 'true'
         with:
           commit_message: "Update dependencies in pyproject.mustache"
           file_pattern: custom-template/pyproject.mustache
