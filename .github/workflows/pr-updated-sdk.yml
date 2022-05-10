@@ -10,32 +10,18 @@ jobs:
     name: "Quick check if the API has been updated"
     runs-on: ubuntu-latest
     outputs:
-      is-diff-version: ${{steps.compare_version_res.outputs.is_diff_version}}
+      is-diff-version: ${{steps.compare_version_res.outputs.is-diff-version}}
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
       - name: "Download new OpenDota API spec"
         run: wget https://api.opendota.com/api --output-document spec.json
-      - name: "Read current specification"
-        id: curr_spec
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ".openapi-generator/spec.json"
-      - name: "Read downloaded specification"
-        id: new_spec
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: "spec.json"
-      - name: "Compare API versions between downloaded specification and current"
+      - name: "Compare OpenAPI specifications version"
         id: compare_version_res
-        run: |
-          curr_version="${{fromJson(steps.curr_spec.outputs.content).info.version}}"
-          new_version="${{fromJson(steps.new_spec.outputs.content).info.version}}"
-          if [[ $curr_version == $new_version ]]; then
-            echo "::set-output name=is_diff_version::false"
-          else
-            echo "::set-output name=is_diff_version::true"
-          fi
+        uses: swimmwatch/openapi-compare-version@v1
+        with:
+          current-spec: ".openapi-generator/spec.json"
+          new-spec: "spec.json"
       - name: "Upload downloaded specification for next job"
         uses: actions/upload-artifact@v3
         with:
