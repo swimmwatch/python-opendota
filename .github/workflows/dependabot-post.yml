@@ -1,0 +1,57 @@
+name: Dependabot post processing
+on: pull_request
+
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
+jobs:
+  dependabot-post:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+      - name: "Dependabot metadata"
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Setup Python"
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+      - name: ""
+        shell: python
+        run: |
+          import json
+          import os
+          
+          PYPROJECT_TOML_TEMPLATE_PATH = os.path.join('custom-template', 'pyproject.mustache')
+
+          with open(PYPROJECT_TOML_TEMPLATE_PATH, 'r') as pyproject_template_file:
+              pyproject_template_content = pyproject_template_file.read()
+              
+          json_data = '${{steps.metadata.outputs.updated-dependencies-json}}'
+          updated_dependencies = json.loads(json_data)
+          for dependency in updated_dependencies:
+              dependency_name = dependency['dependencyName']
+              current_version = dependency['prevVersion']
+              updated_version = dependency['newVersion']
+            
+              # replace version in pyproject.toml template content
+              version_str = f'{dependency_name} = "^%s"'
+              pyproject_template_content = pyproject_template_content.replace(
+                version_str % current_version, 
+                version_str % updated_version
+              )
+              
+          # rewrite updated pyproject.toml template file
+          with open(PYPROJECT_TOML_TEMPLATE_PATH, 'w') as pyproject_template_file:
+              pyproject_template_file.write(pyproject_template_content)
+      - name: "Commit changes"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update dependencies in pyproject.mustache"
+          file_pattern: custom-template/pyproject.mustache

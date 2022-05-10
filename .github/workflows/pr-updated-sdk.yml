@@ -10,29 +10,18 @@ jobs:
     name: "Quick check if the API has been updated"
     runs-on: ubuntu-latest
     outputs:
-      is-diff-version: ${{steps.compare_version_res.outputs.is_diff_version}}
+      is-diff-version: ${{steps.compare_version_res.outputs.is-diff-version}}
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
       - name: "Download new OpenDota API spec"
         run: wget https://api.opendota.com/api --output-document spec.json
-      - name: "Read specifications content"
-        id: spec_contents
-        run: |
-          curr_spec_content="$(cat .openapi-generator/spec.json)"
-          new_spec_content="$(cat spec.json)"
-          echo "::set-output name=curr_spec_content::$curr_spec_content"
-          echo "::set-output name=new_spec_content::$new_spec_content"
-      - name: "Compare API versions between downloaded specification and current"
+      - name: "Compare OpenAPI specifications version"
         id: compare_version_res
-        run: |
-          curr_version="${{fromJson(steps.spec_contents.outputs.curr_spec_content).info.version}}"
-          new_version="${{fromJson(steps.spec_contents.outputs.new_spec_content).info.version}}"
-          if [[ $curr_version == $new_version ]]; then
-            echo "::set-output name=is_diff_version::false"
-          else
-            echo "::set-output name=is_diff_version::true"
-          fi
+        uses: swimmwatch/openapi-compare-version@v1
+        with:
+          current-spec: ".openapi-generator/spec.json"
+          new-spec: "spec.json"
       - name: "Upload downloaded specification for next job"
         uses: actions/upload-artifact@v3
         with:
@@ -61,7 +50,7 @@ jobs:
           old-spec: ".openapi-generator/spec.json"
           new-spec: "spec.json"
           markdown: "changes.md"
-      - name: "Read PACKAGE_VERSION file"
+      - name: "Read changes.md file"
         id: markdown_changes
         uses: juliangruber/read-file-action@v1
         with:
