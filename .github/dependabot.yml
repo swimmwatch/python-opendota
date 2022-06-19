@@ -9,3 +9,12 @@ updates:
     target-branch: "dev"
     labels:
       - "pip-dependencies"
+  - package-ecosystem: "github-actions"
+    assignees:
+      - "swimmwatch"
+    directory: "/"
+    target-branch: "dev"
+    schedule:
+      interval: "daily"
+    labels:
+      - "github-actions-dependencies"
