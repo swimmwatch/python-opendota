@@ -44,7 +44,7 @@ jobs:
         with:
           name: "downloaded_spec"
       - name: "Compare downloaded specification and current"
-        uses: swimmwatch/openapi-diff-action@v1.0.0
+        uses: swimmwatch/openapi-diff-action@v1.0.1
         id: compare_state
         with:
           old-spec: ".openapi-generator/spec.json"
