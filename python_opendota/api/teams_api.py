@@ -19,7 +19,7 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 from python_opendota.model.match_object_response import MatchObjectResponse
 from python_opendota.model.team_heroes_response import TeamHeroesResponse
@@ -40,247 +40,204 @@ class TeamsApi(object):
         self.api_client = api_client
         self.teams_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([TeamObjectResponse],),
-                'auth': [],
-                'endpoint_path': '/teams',
-                'operation_id': 'teams_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([TeamObjectResponse],),
+                "auth": [],
+                "endpoint_path": "/teams",
+                "operation_id": "teams_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
+                "all": [
+                    "page",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "page": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "page": "page",
                 },
-                'openapi_types': {
+                "location_map": {
+                    "page": "query",
                 },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.teams_team_id_get_endpoint = _Endpoint(
             settings={
-                'response_type': (TeamObjectResponse,),
-                'auth': [],
-                'endpoint_path': '/teams/{team_id}',
-                'operation_id': 'teams_team_id_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (TeamObjectResponse,),
+                "auth": [],
+                "endpoint_path": "/teams/{team_id}",
+                "operation_id": "teams_team_id_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'team_id',
+                "all": [
+                    "team_id",
                 ],
-                'required': [
-                    'team_id',
+                "required": [
+                    "team_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "team_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "team_id": "team_id",
                 },
-                'openapi_types': {
-                    'team_id':
-                        (int,),
+                "location_map": {
+                    "team_id": "path",
                 },
-                'attribute_map': {
-                    'team_id': 'team_id',
-                },
-                'location_map': {
-                    'team_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.teams_team_id_heroes_get_endpoint = _Endpoint(
             settings={
-                'response_type': (TeamHeroesResponse,),
-                'auth': [],
-                'endpoint_path': '/teams/{team_id}/heroes',
-                'operation_id': 'teams_team_id_heroes_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (TeamHeroesResponse,),
+                "auth": [],
+                "endpoint_path": "/teams/{team_id}/heroes",
+                "operation_id": "teams_team_id_heroes_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'team_id',
+                "all": [
+                    "team_id",
                 ],
-                'required': [
-                    'team_id',
+                "required": [
+                    "team_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "team_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "team_id": "team_id",
                 },
-                'openapi_types': {
-                    'team_id':
-                        (int,),
+                "location_map": {
+                    "team_id": "path",
                 },
-                'attribute_map': {
-                    'team_id': 'team_id',
-                },
-                'location_map': {
-                    'team_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.teams_team_id_matches_get_endpoint = _Endpoint(
             settings={
-                'response_type': (MatchObjectResponse,),
-                'auth': [],
-                'endpoint_path': '/teams/{team_id}/matches',
-                'operation_id': 'teams_team_id_matches_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (MatchObjectResponse,),
+                "auth": [],
+                "endpoint_path": "/teams/{team_id}/matches",
+                "operation_id": "teams_team_id_matches_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'team_id',
+                "all": [
+                    "team_id",
                 ],
-                'required': [
-                    'team_id',
+                "required": [
+                    "team_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "team_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "team_id": "team_id",
                 },
-                'openapi_types': {
-                    'team_id':
-                        (int,),
+                "location_map": {
+                    "team_id": "path",
                 },
-                'attribute_map': {
-                    'team_id': 'team_id',
-                },
-                'location_map': {
-                    'team_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.teams_team_id_players_get_endpoint = _Endpoint(
             settings={
-                'response_type': (TeamPlayersResponse,),
-                'auth': [],
-                'endpoint_path': '/teams/{team_id}/players',
-                'operation_id': 'teams_team_id_players_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (TeamPlayersResponse,),
+                "auth": [],
+                "endpoint_path": "/teams/{team_id}/players",
+                "operation_id": "teams_team_id_players_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'team_id',
+                "all": [
+                    "team_id",
                 ],
-                'required': [
-                    'team_id',
+                "required": [
+                    "team_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "team_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "team_id": "team_id",
                 },
-                'openapi_types': {
-                    'team_id':
-                        (int,),
+                "location_map": {
+                    "team_id": "path",
                 },
-                'attribute_map': {
-                    'team_id': 'team_id',
-                },
-                'location_map': {
-                    'team_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def teams_get(
-        self,
-        **kwargs
-    ):
+    def teams_get(self, **kwargs):
         """GET /teams  # noqa: E501
 
         Get team data  # noqa: E501
@@ -292,6 +249,7 @@ class TeamsApi(object):
 
 
         Keyword Args:
+            page (int): Page number, zero indexed. Each page returns up to 1000 entries.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -328,38 +286,19 @@ class TeamsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.teams_get_endpoint.call_with_http_info(**kwargs)
 
-    def teams_team_id_get(
-        self,
-        team_id,
-        **kwargs
-    ):
+    def teams_team_id_get(self, team_id, **kwargs):
         """GET /teams/{team_id}  # noqa: E501
 
         Get data for a team  # noqa: E501
@@ -409,40 +348,20 @@ class TeamsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['team_id'] = \
-            team_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["team_id"] = team_id
         return self.teams_team_id_get_endpoint.call_with_http_info(**kwargs)
 
-    def teams_team_id_heroes_get(
-        self,
-        team_id,
-        **kwargs
-    ):
+    def teams_team_id_heroes_get(self, team_id, **kwargs):
         """GET /teams/{team_id}/heroes  # noqa: E501
 
         Get heroes for a team  # noqa: E501
@@ -492,40 +411,20 @@ class TeamsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['team_id'] = \
-            team_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["team_id"] = team_id
         return self.teams_team_id_heroes_get_endpoint.call_with_http_info(**kwargs)
 
-    def teams_team_id_matches_get(
-        self,
-        team_id,
-        **kwargs
-    ):
+    def teams_team_id_matches_get(self, team_id, **kwargs):
         """GET /teams/{team_id}/matches  # noqa: E501
 
         Get matches for a team  # noqa: E501
@@ -575,40 +474,20 @@ class TeamsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['team_id'] = \
-            team_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["team_id"] = team_id
         return self.teams_team_id_matches_get_endpoint.call_with_http_info(**kwargs)
 
-    def teams_team_id_players_get(
-        self,
-        team_id,
-        **kwargs
-    ):
+    def teams_team_id_players_get(self, team_id, **kwargs):
         """GET /teams/{team_id}/players  # noqa: E501
 
         Get players who have played for a team  # noqa: E501
@@ -658,32 +537,15 @@ class TeamsApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['team_id'] = \
-            team_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["team_id"] = team_id
         return self.teams_team_id_players_get_endpoint.call_with_http_info(**kwargs)
-

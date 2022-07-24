@@ -344,7 +344,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **heroes_hero_id_players_get**
-> [[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]] heroes_hero_id_players_get(hero_id)
+> [[PlayerObjectResponse]] heroes_hero_id_players_get(hero_id)
 
 GET /heroes/{hero_id}/players
 
@@ -357,6 +357,7 @@ Get players who have played this hero
 import time
 import python_opendota
 from python_opendota.api import heroes_api
+from python_opendota.model.player_object_response import PlayerObjectResponse
 from pprint import pprint
 # Defining the host is optional and defaults to http://api.opendota.com/api
 # See configuration.py for a list of all supported configuration parameters.
@@ -389,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]]**
+**[[PlayerObjectResponse]]**
 
 ### Authorization
 

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **commmand** | **str** | command | [optional] 
 **row_count** | **int** | rowCount | [optional] 
-**rows** | [**[DistributionsResponseCountryMmrRows]**](DistributionsResponseCountryMmrRows.md) | rows | [optional] 
-**fields** | [**[DistributionsResponseCountryMmrFields]**](DistributionsResponseCountryMmrFields.md) | fields | [optional] 
+**rows** | [**[DistributionsResponseCountryMmrRowsInner]**](DistributionsResponseCountryMmrRowsInner.md) | rows | [optional] 
+**fields** | [**[DistributionsResponseCountryMmrFieldsInner]**](DistributionsResponseCountryMmrFieldsInner.md) | fields | [optional] 
 **row_as_array** | **bool** | rowAsArray | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

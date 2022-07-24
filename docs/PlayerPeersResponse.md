@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **personaname** | **str** | personaname | [optional] 
 **name** | **str** | name | [optional] 
 **is_contributor** | **bool** | is_contributor | [optional] 
+**is_subscriber** | **bool** | is_subscriber | [optional] 
 **last_login** | **str** | last_login | [optional] 
 **avatar** | **str** | avatar | [optional] 
 **avatarfull** | **str** | avatarfull | [optional] 

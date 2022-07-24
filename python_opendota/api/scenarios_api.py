@@ -19,9 +19,11 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
-from python_opendota.model.scenario_item_timings_response import ScenarioItemTimingsResponse
+from python_opendota.model.scenario_item_timings_response import (
+    ScenarioItemTimingsResponse,
+)
 from python_opendota.model.scenario_lane_roles_response import ScenarioLaneRolesResponse
 from python_opendota.model.scenario_misc_response import ScenarioMiscResponse
 
@@ -39,160 +41,128 @@ class ScenariosApi(object):
         self.api_client = api_client
         self.scenarios_item_timings_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([ScenarioItemTimingsResponse],),
-                'auth': [],
-                'endpoint_path': '/scenarios/itemTimings',
-                'operation_id': 'scenarios_item_timings_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([ScenarioItemTimingsResponse],),
+                "auth": [],
+                "endpoint_path": "/scenarios/itemTimings",
+                "operation_id": "scenarios_item_timings_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'item',
-                    'hero_id',
+                "all": [
+                    "item",
+                    "hero_id",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "item": (str,),
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "item": "item",
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'item':
-                        (str,),
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "item": "query",
+                    "hero_id": "query",
                 },
-                'attribute_map': {
-                    'item': 'item',
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'item': 'query',
-                    'hero_id': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.scenarios_lane_roles_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([ScenarioLaneRolesResponse],),
-                'auth': [],
-                'endpoint_path': '/scenarios/laneRoles',
-                'operation_id': 'scenarios_lane_roles_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([ScenarioLaneRolesResponse],),
+                "auth": [],
+                "endpoint_path": "/scenarios/laneRoles",
+                "operation_id": "scenarios_lane_roles_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'lane_role',
-                    'hero_id',
+                "all": [
+                    "lane_role",
+                    "hero_id",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "lane_role": (str,),
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'lane_role':
-                        (str,),
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "lane_role": "query",
+                    "hero_id": "query",
                 },
-                'attribute_map': {
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.scenarios_misc_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([ScenarioMiscResponse],),
-                'auth': [],
-                'endpoint_path': '/scenarios/misc',
-                'operation_id': 'scenarios_misc_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([ScenarioMiscResponse],),
+                "auth": [],
+                "endpoint_path": "/scenarios/misc",
+                "operation_id": "scenarios_misc_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'scenario',
+                "all": [
+                    "scenario",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "scenario": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "scenario": "scenario",
                 },
-                'openapi_types': {
-                    'scenario':
-                        (str,),
+                "location_map": {
+                    "scenario": "query",
                 },
-                'attribute_map': {
-                    'scenario': 'scenario',
-                },
-                'location_map': {
-                    'scenario': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def scenarios_item_timings_get(
-        self,
-        **kwargs
-    ):
+    def scenarios_item_timings_get(self, **kwargs):
         """GET /scenarios/itemTimings  # noqa: E501
 
         Win rates for certain item timings on a hero for items that cost at least 1400 gold  # noqa: E501
@@ -242,37 +212,19 @@ class ScenariosApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.scenarios_item_timings_get_endpoint.call_with_http_info(**kwargs)
 
-    def scenarios_lane_roles_get(
-        self,
-        **kwargs
-    ):
+    def scenarios_lane_roles_get(self, **kwargs):
         """GET /scenarios/laneRoles  # noqa: E501
 
         Win rates for heroes in certain lane roles  # noqa: E501
@@ -322,37 +274,19 @@ class ScenariosApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.scenarios_lane_roles_get_endpoint.call_with_http_info(**kwargs)
 
-    def scenarios_misc_get(
-        self,
-        **kwargs
-    ):
+    def scenarios_misc_get(self, **kwargs):
         """GET /scenarios/misc  # noqa: E501
 
         Miscellaneous team scenarios  # noqa: E501
@@ -401,30 +335,14 @@ class ScenariosApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.scenarios_misc_get_endpoint.call_with_http_info(**kwargs)
-

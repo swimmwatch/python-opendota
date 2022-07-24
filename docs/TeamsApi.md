@@ -38,11 +38,13 @@ configuration = python_opendota.Configuration(
 with python_opendota.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = teams_api.TeamsApi(api_client)
+    page = 1 # int | Page number, zero indexed. Each page returns up to 1000 entries. (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # GET /teams
-        api_response = api_instance.teams_get()
+        api_response = api_instance.teams_get(page=page)
         pprint(api_response)
     except python_opendota.ApiException as e:
         print("Exception when calling TeamsApi->teams_get: %s\n" % e)
@@ -50,7 +52,10 @@ with python_opendota.ApiClient() as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number, zero indexed. Each page returns up to 1000 entries. | [optional]
 
 ### Return type
 

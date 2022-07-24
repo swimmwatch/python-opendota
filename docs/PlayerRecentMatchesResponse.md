@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **deaths** | **int** | Total deaths the player had at the end of the match | [optional] 
 **assists** | **int** | Total assists the player had at the end of the match | [optional] 
 **skill** | **int** | Skill bracket assigned by Valve (Normal, High, Very High). If the skill is unknown, will return null. | [optional] 
+**average_rank** | **int** | Average rank of players with public match data | [optional] 
 **xp_per_min** | **int** | Experience Per Minute obtained by the player | [optional] 
 **gold_per_min** | **int** | Average gold per minute of the player | [optional] 
 **hero_damage** | **int** | Total hero damage to enemy heroes | [optional] 

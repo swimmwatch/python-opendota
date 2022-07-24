@@ -19,13 +19,16 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 from python_opendota.model.hero_durations_response import HeroDurationsResponse
-from python_opendota.model.hero_item_popularity_response import HeroItemPopularityResponse
+from python_opendota.model.hero_item_popularity_response import (
+    HeroItemPopularityResponse,
+)
 from python_opendota.model.hero_matchups_response import HeroMatchupsResponse
 from python_opendota.model.hero_object_response import HeroObjectResponse
 from python_opendota.model.match_object_response import MatchObjectResponse
+from python_opendota.model.player_object_response import PlayerObjectResponse
 
 
 class HeroesApi(object):
@@ -41,296 +44,236 @@ class HeroesApi(object):
         self.api_client = api_client
         self.heroes_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([HeroObjectResponse],),
-                'auth': [],
-                'endpoint_path': '/heroes',
-                'operation_id': 'heroes_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([HeroObjectResponse],),
+                "auth": [],
+                "endpoint_path": "/heroes",
+                "operation_id": "heroes_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "all": [],
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                },
-                'attribute_map': {
-                },
-                'location_map': {
-                },
-                'collection_format_map': {
-                }
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {},
+                "attribute_map": {},
+                "location_map": {},
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.heroes_hero_id_durations_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([HeroDurationsResponse],),
-                'auth': [],
-                'endpoint_path': '/heroes/{hero_id}/durations',
-                'operation_id': 'heroes_hero_id_durations_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([HeroDurationsResponse],),
+                "auth": [],
+                "endpoint_path": "/heroes/{hero_id}/durations",
+                "operation_id": "heroes_hero_id_durations_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'hero_id',
+                "all": [
+                    "hero_id",
                 ],
-                'required': [
-                    'hero_id',
+                "required": [
+                    "hero_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "hero_id": "path",
                 },
-                'attribute_map': {
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'hero_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.heroes_hero_id_item_popularity_get_endpoint = _Endpoint(
             settings={
-                'response_type': (HeroItemPopularityResponse,),
-                'auth': [],
-                'endpoint_path': '/heroes/{hero_id}/itemPopularity',
-                'operation_id': 'heroes_hero_id_item_popularity_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (HeroItemPopularityResponse,),
+                "auth": [],
+                "endpoint_path": "/heroes/{hero_id}/itemPopularity",
+                "operation_id": "heroes_hero_id_item_popularity_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'hero_id',
+                "all": [
+                    "hero_id",
                 ],
-                'required': [
-                    'hero_id',
+                "required": [
+                    "hero_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "hero_id": "path",
                 },
-                'attribute_map': {
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'hero_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.heroes_hero_id_matches_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([MatchObjectResponse],),
-                'auth': [],
-                'endpoint_path': '/heroes/{hero_id}/matches',
-                'operation_id': 'heroes_hero_id_matches_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([MatchObjectResponse],),
+                "auth": [],
+                "endpoint_path": "/heroes/{hero_id}/matches",
+                "operation_id": "heroes_hero_id_matches_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'hero_id',
+                "all": [
+                    "hero_id",
                 ],
-                'required': [
-                    'hero_id',
+                "required": [
+                    "hero_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "hero_id": "path",
                 },
-                'attribute_map': {
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'hero_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.heroes_hero_id_matchups_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([HeroMatchupsResponse],),
-                'auth': [],
-                'endpoint_path': '/heroes/{hero_id}/matchups',
-                'operation_id': 'heroes_hero_id_matchups_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([HeroMatchupsResponse],),
+                "auth": [],
+                "endpoint_path": "/heroes/{hero_id}/matchups",
+                "operation_id": "heroes_hero_id_matchups_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'hero_id',
+                "all": [
+                    "hero_id",
                 ],
-                'required': [
-                    'hero_id',
+                "required": [
+                    "hero_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "hero_id": "path",
                 },
-                'attribute_map': {
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'hero_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.heroes_hero_id_players_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]],),
-                'auth': [],
-                'endpoint_path': '/heroes/{hero_id}/players',
-                'operation_id': 'heroes_hero_id_players_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([[PlayerObjectResponse]],),
+                "auth": [],
+                "endpoint_path": "/heroes/{hero_id}/players",
+                "operation_id": "heroes_hero_id_players_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'hero_id',
+                "all": [
+                    "hero_id",
                 ],
-                'required': [
-                    'hero_id',
+                "required": [
+                    "hero_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "hero_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "hero_id": "hero_id",
                 },
-                'openapi_types': {
-                    'hero_id':
-                        (int,),
+                "location_map": {
+                    "hero_id": "path",
                 },
-                'attribute_map': {
-                    'hero_id': 'hero_id',
-                },
-                'location_map': {
-                    'hero_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def heroes_get(
-        self,
-        **kwargs
-    ):
+    def heroes_get(self, **kwargs):
         """GET /heroes  # noqa: E501
 
         Get hero data  # noqa: E501
@@ -378,38 +321,19 @@ class HeroesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.heroes_get_endpoint.call_with_http_info(**kwargs)
 
-    def heroes_hero_id_durations_get(
-        self,
-        hero_id,
-        **kwargs
-    ):
+    def heroes_hero_id_durations_get(self, hero_id, **kwargs):
         """GET /heroes/{hero_id}/durations  # noqa: E501
 
         Get hero performance over a range of match durations  # noqa: E501
@@ -459,40 +383,20 @@ class HeroesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['hero_id'] = \
-            hero_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["hero_id"] = hero_id
         return self.heroes_hero_id_durations_get_endpoint.call_with_http_info(**kwargs)
 
-    def heroes_hero_id_item_popularity_get(
-        self,
-        hero_id,
-        **kwargs
-    ):
+    def heroes_hero_id_item_popularity_get(self, hero_id, **kwargs):
         """GET /heroes/{hero_id}/itemPopularity  # noqa: E501
 
         Get item popularity of hero categoried by start, early, mid and late game, analyzed from professional games  # noqa: E501
@@ -542,40 +446,22 @@ class HeroesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["hero_id"] = hero_id
+        return self.heroes_hero_id_item_popularity_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['hero_id'] = \
-            hero_id
-        return self.heroes_hero_id_item_popularity_get_endpoint.call_with_http_info(**kwargs)
 
-    def heroes_hero_id_matches_get(
-        self,
-        hero_id,
-        **kwargs
-    ):
+    def heroes_hero_id_matches_get(self, hero_id, **kwargs):
         """GET /heroes/{hero_id}/matches  # noqa: E501
 
         Get recent matches with a hero  # noqa: E501
@@ -625,40 +511,20 @@ class HeroesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['hero_id'] = \
-            hero_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["hero_id"] = hero_id
         return self.heroes_hero_id_matches_get_endpoint.call_with_http_info(**kwargs)
 
-    def heroes_hero_id_matchups_get(
-        self,
-        hero_id,
-        **kwargs
-    ):
+    def heroes_hero_id_matchups_get(self, hero_id, **kwargs):
         """GET /heroes/{hero_id}/matchups  # noqa: E501
 
         Get results against other heroes for a hero  # noqa: E501
@@ -708,40 +574,20 @@ class HeroesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['hero_id'] = \
-            hero_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["hero_id"] = hero_id
         return self.heroes_hero_id_matchups_get_endpoint.call_with_http_info(**kwargs)
 
-    def heroes_hero_id_players_get(
-        self,
-        hero_id,
-        **kwargs
-    ):
+    def heroes_hero_id_players_get(self, hero_id, **kwargs):
         """GET /heroes/{hero_id}/players  # noqa: E501
 
         Get players who have played this hero  # noqa: E501
@@ -787,36 +633,19 @@ class HeroesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]]
+            [[PlayerObjectResponse]]
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['hero_id'] = \
-            hero_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["hero_id"] = hero_id
         return self.heroes_hero_id_players_get_endpoint.call_with_http_info(**kwargs)
-
