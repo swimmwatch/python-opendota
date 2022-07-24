@@ -19,7 +19,7 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 from python_opendota.model.search_response import SearchResponse
 
@@ -37,59 +37,46 @@ class SearchApi(object):
         self.api_client = api_client
         self.search_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([SearchResponse],),
-                'auth': [],
-                'endpoint_path': '/search',
-                'operation_id': 'search_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([SearchResponse],),
+                "auth": [],
+                "endpoint_path": "/search",
+                "operation_id": "search_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'q',
+                "all": [
+                    "q",
                 ],
-                'required': [
-                    'q',
+                "required": [
+                    "q",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "q": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "q": "q",
                 },
-                'openapi_types': {
-                    'q':
-                        (str,),
+                "location_map": {
+                    "q": "query",
                 },
-                'attribute_map': {
-                    'q': 'q',
-                },
-                'location_map': {
-                    'q': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def search_get(
-        self,
-        q,
-        **kwargs
-    ):
+    def search_get(self, q, **kwargs):
         """GET /search  # noqa: E501
 
         Search players by personaname.  # noqa: E501
@@ -139,32 +126,15 @@ class SearchApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['q'] = \
-            q
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["q"] = q
         return self.search_get_endpoint.call_with_http_info(**kwargs)
-

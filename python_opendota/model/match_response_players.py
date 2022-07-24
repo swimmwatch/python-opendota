@@ -24,22 +24,27 @@ from python_opendota.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
-    OpenApiModel
+    OpenApiModel,
 )
 from python_opendota.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from python_opendota.model.match_response_buyback_log import MatchResponseBuybackLog
-    from python_opendota.model.match_response_connection_log import MatchResponseConnectionLog
+    from python_opendota.model.match_response_connection_log import (
+        MatchResponseConnectionLog,
+    )
     from python_opendota.model.match_response_kills_log import MatchResponseKillsLog
-    from python_opendota.model.match_response_purchase_log import MatchResponsePurchaseLog
+    from python_opendota.model.match_response_purchase_log import (
+        MatchResponsePurchaseLog,
+    )
     from python_opendota.model.match_response_runes_log import MatchResponseRunesLog
-    globals()['MatchResponseBuybackLog'] = MatchResponseBuybackLog
-    globals()['MatchResponseConnectionLog'] = MatchResponseConnectionLog
-    globals()['MatchResponseKillsLog'] = MatchResponseKillsLog
-    globals()['MatchResponsePurchaseLog'] = MatchResponsePurchaseLog
-    globals()['MatchResponseRunesLog'] = MatchResponseRunesLog
+
+    globals()["MatchResponseBuybackLog"] = MatchResponseBuybackLog
+    globals()["MatchResponseConnectionLog"] = MatchResponseConnectionLog
+    globals()["MatchResponseKillsLog"] = MatchResponseKillsLog
+    globals()["MatchResponsePurchaseLog"] = MatchResponsePurchaseLog
+    globals()["MatchResponseRunesLog"] = MatchResponseRunesLog
 
 
 class MatchResponsePlayers(ModelNormal):
@@ -66,11 +71,9 @@ class MatchResponsePlayers(ModelNormal):
           as additional properties values.
     """
 
-    allowed_values = {
-    }
+    allowed_values = {}
 
-    validations = {
-    }
+    validations = {}
 
     @cached_property
     def additional_properties_type():
@@ -79,7 +82,17 @@ class MatchResponsePlayers(ModelNormal):
         of type self, this must run after the class is loaded
         """
         lazy_import()
-        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
+        return (
+            bool,
+            date,
+            datetime,
+            dict,
+            float,
+            int,
+            list,
+            str,
+            none_type,
+        )  # noqa: E501
 
     _nullable = False
 
@@ -95,262 +108,560 @@ class MatchResponsePlayers(ModelNormal):
         """
         lazy_import()
         return {
-            'match_id': (int,),  # noqa: E501
-            'player_slot': (int,),  # noqa: E501
-            'ability_upgrades_arr': ([int],),  # noqa: E501
-            'ability_uses': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'ability_targets': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'damage_targets': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'account_id': (int,),  # noqa: E501
-            'actions': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'additional_units': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'assists': (int,),  # noqa: E501
-            'backpack_0': (int,),  # noqa: E501
-            'backpack_1': (int,),  # noqa: E501
-            'backpack_2': (int,),  # noqa: E501
-            'buyback_log': ([MatchResponseBuybackLog],),  # noqa: E501
-            'camps_stacked': (int,),  # noqa: E501
-            'connection_log': ([MatchResponseConnectionLog],),  # noqa: E501
-            'creeps_stacked': (int,),  # noqa: E501
-            'damage': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'damage_inflictor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'damage_inflictor_received': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'damage_taken': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'deaths': (int,),  # noqa: E501
-            'denies': (int,),  # noqa: E501
-            'dn_t': ([int],),  # noqa: E501
-            'gold': (int,),  # noqa: E501
-            'gold_per_min': (int,),  # noqa: E501
-            'gold_reasons': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'gold_spent': (int,),  # noqa: E501
-            'gold_t': ([int],),  # noqa: E501
-            'hero_damage': (int,),  # noqa: E501
-            'hero_healing': (int,),  # noqa: E501
-            'hero_hits': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'hero_id': (int,),  # noqa: E501
-            'item_0': (int,),  # noqa: E501
-            'item_1': (int,),  # noqa: E501
-            'item_2': (int,),  # noqa: E501
-            'item_3': (int,),  # noqa: E501
-            'item_4': (int,),  # noqa: E501
-            'item_5': (int,),  # noqa: E501
-            'item_uses': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'kill_streaks': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'killed': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'killed_by': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'kills': (int,),  # noqa: E501
-            'kills_log': ([MatchResponseKillsLog],),  # noqa: E501
-            'lane_pos': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'last_hits': (int,),  # noqa: E501
-            'leaver_status': (int,),  # noqa: E501
-            'level': (int,),  # noqa: E501
-            'lh_t': ([int],),  # noqa: E501
-            'life_state': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'max_hero_hit': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'multi_kills': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'obs': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'obs_left_log': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'obs_log': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'obs_placed': (int,),  # noqa: E501
-            'party_id': (int,),  # noqa: E501
-            'permanent_buffs': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'pings': (int,),  # noqa: E501
-            'purchase': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'purchase_log': ([MatchResponsePurchaseLog],),  # noqa: E501
-            'rune_pickups': (int,),  # noqa: E501
-            'runes': ({str: (int,)},),  # noqa: E501
-            'runes_log': ([MatchResponseRunesLog],),  # noqa: E501
-            'sen': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'sen_left_log': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'sen_log': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
-            'sen_placed': (int,),  # noqa: E501
-            'stuns': (float,),  # noqa: E501
-            'times': ([int],),  # noqa: E501
-            'tower_damage': (int,),  # noqa: E501
-            'xp_per_min': (int,),  # noqa: E501
-            'xp_reasons': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'xp_t': ([int],),  # noqa: E501
-            'personaname': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'last_login': (datetime,),  # noqa: E501
-            'radiant_win': (bool,),  # noqa: E501
-            'start_time': (int,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
-            'cluster': (int,),  # noqa: E501
-            'lobby_type': (int,),  # noqa: E501
-            'game_mode': (int,),  # noqa: E501
-            'patch': (int,),  # noqa: E501
-            'region': (int,),  # noqa: E501
-            'is_radiant': (bool,),  # noqa: E501
-            'win': (int,),  # noqa: E501
-            'lose': (int,),  # noqa: E501
-            'total_gold': (int,),  # noqa: E501
-            'total_xp': (int,),  # noqa: E501
-            'kills_per_min': (float,),  # noqa: E501
-            'kda': (float,),  # noqa: E501
-            'abandons': (int,),  # noqa: E501
-            'neutral_kills': (int,),  # noqa: E501
-            'tower_kills': (int,),  # noqa: E501
-            'courier_kills': (int,),  # noqa: E501
-            'lane_kills': (int,),  # noqa: E501
-            'hero_kills': (int,),  # noqa: E501
-            'observer_kills': (int,),  # noqa: E501
-            'sentry_kills': (int,),  # noqa: E501
-            'roshan_kills': (int,),  # noqa: E501
-            'necronomicon_kills': (int,),  # noqa: E501
-            'ancient_kills': (int,),  # noqa: E501
-            'buyback_count': (int,),  # noqa: E501
-            'observer_uses': (int,),  # noqa: E501
-            'sentry_uses': (int,),  # noqa: E501
-            'lane_efficiency': (float,),  # noqa: E501
-            'lane_efficiency_pct': (float,),  # noqa: E501
-            'lane': (int,),  # noqa: E501
-            'lane_role': (int,),  # noqa: E501
-            'is_roaming': (bool,),  # noqa: E501
-            'purchase_time': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'first_purchase_time': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'item_win': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'item_usage': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'purchase_tpscroll': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'actions_per_min': (int,),  # noqa: E501
-            'life_state_dead': (int,),  # noqa: E501
-            'rank_tier': (int,),  # noqa: E501
-            'cosmetics': ([int],),  # noqa: E501
-            'benchmarks': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            "match_id": (int,),  # noqa: E501
+            "player_slot": (int,),  # noqa: E501
+            "ability_upgrades_arr": ([int],),  # noqa: E501
+            "ability_uses": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "ability_targets": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "damage_targets": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "account_id": (int,),  # noqa: E501
+            "actions": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "additional_units": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "assists": (int,),  # noqa: E501
+            "backpack_0": (int,),  # noqa: E501
+            "backpack_1": (int,),  # noqa: E501
+            "backpack_2": (int,),  # noqa: E501
+            "buyback_log": ([MatchResponseBuybackLog],),  # noqa: E501
+            "camps_stacked": (int,),  # noqa: E501
+            "connection_log": ([MatchResponseConnectionLog],),  # noqa: E501
+            "creeps_stacked": (int,),  # noqa: E501
+            "damage": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "damage_inflictor": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "damage_inflictor_received": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "damage_taken": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "deaths": (int,),  # noqa: E501
+            "denies": (int,),  # noqa: E501
+            "dn_t": ([int],),  # noqa: E501
+            "gold": (int,),  # noqa: E501
+            "gold_per_min": (int,),  # noqa: E501
+            "gold_reasons": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "gold_spent": (int,),  # noqa: E501
+            "gold_t": ([int],),  # noqa: E501
+            "hero_damage": (int,),  # noqa: E501
+            "hero_healing": (int,),  # noqa: E501
+            "hero_hits": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "hero_id": (int,),  # noqa: E501
+            "item_0": (int,),  # noqa: E501
+            "item_1": (int,),  # noqa: E501
+            "item_2": (int,),  # noqa: E501
+            "item_3": (int,),  # noqa: E501
+            "item_4": (int,),  # noqa: E501
+            "item_5": (int,),  # noqa: E501
+            "item_uses": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "kill_streaks": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "killed": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "killed_by": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "kills": (int,),  # noqa: E501
+            "kills_log": ([MatchResponseKillsLog],),  # noqa: E501
+            "lane_pos": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "last_hits": (int,),  # noqa: E501
+            "leaver_status": (int,),  # noqa: E501
+            "level": (int,),  # noqa: E501
+            "lh_t": ([int],),  # noqa: E501
+            "life_state": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "max_hero_hit": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "multi_kills": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "obs": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "obs_left_log": (
+                [bool, date, datetime, dict, float, int, list, str, none_type],
+            ),  # noqa: E501
+            "obs_log": (
+                [bool, date, datetime, dict, float, int, list, str, none_type],
+            ),  # noqa: E501
+            "obs_placed": (int,),  # noqa: E501
+            "party_id": (int,),  # noqa: E501
+            "permanent_buffs": (
+                [bool, date, datetime, dict, float, int, list, str, none_type],
+            ),  # noqa: E501
+            "pings": (int,),  # noqa: E501
+            "purchase": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "purchase_log": ([MatchResponsePurchaseLog],),  # noqa: E501
+            "rune_pickups": (int,),  # noqa: E501
+            "runes": ({str: (int,)},),  # noqa: E501
+            "runes_log": ([MatchResponseRunesLog],),  # noqa: E501
+            "sen": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "sen_left_log": (
+                [bool, date, datetime, dict, float, int, list, str, none_type],
+            ),  # noqa: E501
+            "sen_log": (
+                [bool, date, datetime, dict, float, int, list, str, none_type],
+            ),  # noqa: E501
+            "sen_placed": (int,),  # noqa: E501
+            "stuns": (float,),  # noqa: E501
+            "times": ([int],),  # noqa: E501
+            "tower_damage": (int,),  # noqa: E501
+            "xp_per_min": (int,),  # noqa: E501
+            "xp_reasons": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "xp_t": ([int],),  # noqa: E501
+            "personaname": (str,),  # noqa: E501
+            "name": (str,),  # noqa: E501
+            "last_login": (datetime,),  # noqa: E501
+            "radiant_win": (bool,),  # noqa: E501
+            "start_time": (int,),  # noqa: E501
+            "duration": (int,),  # noqa: E501
+            "cluster": (int,),  # noqa: E501
+            "lobby_type": (int,),  # noqa: E501
+            "game_mode": (int,),  # noqa: E501
+            "patch": (int,),  # noqa: E501
+            "region": (int,),  # noqa: E501
+            "is_radiant": (bool,),  # noqa: E501
+            "win": (int,),  # noqa: E501
+            "lose": (int,),  # noqa: E501
+            "total_gold": (int,),  # noqa: E501
+            "total_xp": (int,),  # noqa: E501
+            "kills_per_min": (float,),  # noqa: E501
+            "kda": (float,),  # noqa: E501
+            "abandons": (int,),  # noqa: E501
+            "neutral_kills": (int,),  # noqa: E501
+            "tower_kills": (int,),  # noqa: E501
+            "courier_kills": (int,),  # noqa: E501
+            "lane_kills": (int,),  # noqa: E501
+            "hero_kills": (int,),  # noqa: E501
+            "observer_kills": (int,),  # noqa: E501
+            "sentry_kills": (int,),  # noqa: E501
+            "roshan_kills": (int,),  # noqa: E501
+            "necronomicon_kills": (int,),  # noqa: E501
+            "ancient_kills": (int,),  # noqa: E501
+            "buyback_count": (int,),  # noqa: E501
+            "observer_uses": (int,),  # noqa: E501
+            "sentry_uses": (int,),  # noqa: E501
+            "lane_efficiency": (float,),  # noqa: E501
+            "lane_efficiency_pct": (float,),  # noqa: E501
+            "lane": (int,),  # noqa: E501
+            "lane_role": (int,),  # noqa: E501
+            "is_roaming": (bool,),  # noqa: E501
+            "purchase_time": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "first_purchase_time": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "item_win": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "item_usage": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "purchase_tpscroll": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "actions_per_min": (int,),  # noqa: E501
+            "life_state_dead": (int,),  # noqa: E501
+            "rank_tier": (int,),  # noqa: E501
+            "cosmetics": ([int],),  # noqa: E501
+            "benchmarks": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
         }
 
     @cached_property
     def discriminator():
         return None
 
-
     attribute_map = {
-        'match_id': 'match_id',  # noqa: E501
-        'player_slot': 'player_slot',  # noqa: E501
-        'ability_upgrades_arr': 'ability_upgrades_arr',  # noqa: E501
-        'ability_uses': 'ability_uses',  # noqa: E501
-        'ability_targets': 'ability_targets',  # noqa: E501
-        'damage_targets': 'damage_targets',  # noqa: E501
-        'account_id': 'account_id',  # noqa: E501
-        'actions': 'actions',  # noqa: E501
-        'additional_units': 'additional_units',  # noqa: E501
-        'assists': 'assists',  # noqa: E501
-        'backpack_0': 'backpack_0',  # noqa: E501
-        'backpack_1': 'backpack_1',  # noqa: E501
-        'backpack_2': 'backpack_2',  # noqa: E501
-        'buyback_log': 'buyback_log',  # noqa: E501
-        'camps_stacked': 'camps_stacked',  # noqa: E501
-        'connection_log': 'connection_log',  # noqa: E501
-        'creeps_stacked': 'creeps_stacked',  # noqa: E501
-        'damage': 'damage',  # noqa: E501
-        'damage_inflictor': 'damage_inflictor',  # noqa: E501
-        'damage_inflictor_received': 'damage_inflictor_received',  # noqa: E501
-        'damage_taken': 'damage_taken',  # noqa: E501
-        'deaths': 'deaths',  # noqa: E501
-        'denies': 'denies',  # noqa: E501
-        'dn_t': 'dn_t',  # noqa: E501
-        'gold': 'gold',  # noqa: E501
-        'gold_per_min': 'gold_per_min',  # noqa: E501
-        'gold_reasons': 'gold_reasons',  # noqa: E501
-        'gold_spent': 'gold_spent',  # noqa: E501
-        'gold_t': 'gold_t',  # noqa: E501
-        'hero_damage': 'hero_damage',  # noqa: E501
-        'hero_healing': 'hero_healing',  # noqa: E501
-        'hero_hits': 'hero_hits',  # noqa: E501
-        'hero_id': 'hero_id',  # noqa: E501
-        'item_0': 'item_0',  # noqa: E501
-        'item_1': 'item_1',  # noqa: E501
-        'item_2': 'item_2',  # noqa: E501
-        'item_3': 'item_3',  # noqa: E501
-        'item_4': 'item_4',  # noqa: E501
-        'item_5': 'item_5',  # noqa: E501
-        'item_uses': 'item_uses',  # noqa: E501
-        'kill_streaks': 'kill_streaks',  # noqa: E501
-        'killed': 'killed',  # noqa: E501
-        'killed_by': 'killed_by',  # noqa: E501
-        'kills': 'kills',  # noqa: E501
-        'kills_log': 'kills_log',  # noqa: E501
-        'lane_pos': 'lane_pos',  # noqa: E501
-        'last_hits': 'last_hits',  # noqa: E501
-        'leaver_status': 'leaver_status',  # noqa: E501
-        'level': 'level',  # noqa: E501
-        'lh_t': 'lh_t',  # noqa: E501
-        'life_state': 'life_state',  # noqa: E501
-        'max_hero_hit': 'max_hero_hit',  # noqa: E501
-        'multi_kills': 'multi_kills',  # noqa: E501
-        'obs': 'obs',  # noqa: E501
-        'obs_left_log': 'obs_left_log',  # noqa: E501
-        'obs_log': 'obs_log',  # noqa: E501
-        'obs_placed': 'obs_placed',  # noqa: E501
-        'party_id': 'party_id',  # noqa: E501
-        'permanent_buffs': 'permanent_buffs',  # noqa: E501
-        'pings': 'pings',  # noqa: E501
-        'purchase': 'purchase',  # noqa: E501
-        'purchase_log': 'purchase_log',  # noqa: E501
-        'rune_pickups': 'rune_pickups',  # noqa: E501
-        'runes': 'runes',  # noqa: E501
-        'runes_log': 'runes_log',  # noqa: E501
-        'sen': 'sen',  # noqa: E501
-        'sen_left_log': 'sen_left_log',  # noqa: E501
-        'sen_log': 'sen_log',  # noqa: E501
-        'sen_placed': 'sen_placed',  # noqa: E501
-        'stuns': 'stuns',  # noqa: E501
-        'times': 'times',  # noqa: E501
-        'tower_damage': 'tower_damage',  # noqa: E501
-        'xp_per_min': 'xp_per_min',  # noqa: E501
-        'xp_reasons': 'xp_reasons',  # noqa: E501
-        'xp_t': 'xp_t',  # noqa: E501
-        'personaname': 'personaname',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'last_login': 'last_login',  # noqa: E501
-        'radiant_win': 'radiant_win',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
-        'cluster': 'cluster',  # noqa: E501
-        'lobby_type': 'lobby_type',  # noqa: E501
-        'game_mode': 'game_mode',  # noqa: E501
-        'patch': 'patch',  # noqa: E501
-        'region': 'region',  # noqa: E501
-        'is_radiant': 'isRadiant',  # noqa: E501
-        'win': 'win',  # noqa: E501
-        'lose': 'lose',  # noqa: E501
-        'total_gold': 'total_gold',  # noqa: E501
-        'total_xp': 'total_xp',  # noqa: E501
-        'kills_per_min': 'kills_per_min',  # noqa: E501
-        'kda': 'kda',  # noqa: E501
-        'abandons': 'abandons',  # noqa: E501
-        'neutral_kills': 'neutral_kills',  # noqa: E501
-        'tower_kills': 'tower_kills',  # noqa: E501
-        'courier_kills': 'courier_kills',  # noqa: E501
-        'lane_kills': 'lane_kills',  # noqa: E501
-        'hero_kills': 'hero_kills',  # noqa: E501
-        'observer_kills': 'observer_kills',  # noqa: E501
-        'sentry_kills': 'sentry_kills',  # noqa: E501
-        'roshan_kills': 'roshan_kills',  # noqa: E501
-        'necronomicon_kills': 'necronomicon_kills',  # noqa: E501
-        'ancient_kills': 'ancient_kills',  # noqa: E501
-        'buyback_count': 'buyback_count',  # noqa: E501
-        'observer_uses': 'observer_uses',  # noqa: E501
-        'sentry_uses': 'sentry_uses',  # noqa: E501
-        'lane_efficiency': 'lane_efficiency',  # noqa: E501
-        'lane_efficiency_pct': 'lane_efficiency_pct',  # noqa: E501
-        'lane': 'lane',  # noqa: E501
-        'lane_role': 'lane_role',  # noqa: E501
-        'is_roaming': 'is_roaming',  # noqa: E501
-        'purchase_time': 'purchase_time',  # noqa: E501
-        'first_purchase_time': 'first_purchase_time',  # noqa: E501
-        'item_win': 'item_win',  # noqa: E501
-        'item_usage': 'item_usage',  # noqa: E501
-        'purchase_tpscroll': 'purchase_tpscroll',  # noqa: E501
-        'actions_per_min': 'actions_per_min',  # noqa: E501
-        'life_state_dead': 'life_state_dead',  # noqa: E501
-        'rank_tier': 'rank_tier',  # noqa: E501
-        'cosmetics': 'cosmetics',  # noqa: E501
-        'benchmarks': 'benchmarks',  # noqa: E501
+        "match_id": "match_id",  # noqa: E501
+        "player_slot": "player_slot",  # noqa: E501
+        "ability_upgrades_arr": "ability_upgrades_arr",  # noqa: E501
+        "ability_uses": "ability_uses",  # noqa: E501
+        "ability_targets": "ability_targets",  # noqa: E501
+        "damage_targets": "damage_targets",  # noqa: E501
+        "account_id": "account_id",  # noqa: E501
+        "actions": "actions",  # noqa: E501
+        "additional_units": "additional_units",  # noqa: E501
+        "assists": "assists",  # noqa: E501
+        "backpack_0": "backpack_0",  # noqa: E501
+        "backpack_1": "backpack_1",  # noqa: E501
+        "backpack_2": "backpack_2",  # noqa: E501
+        "buyback_log": "buyback_log",  # noqa: E501
+        "camps_stacked": "camps_stacked",  # noqa: E501
+        "connection_log": "connection_log",  # noqa: E501
+        "creeps_stacked": "creeps_stacked",  # noqa: E501
+        "damage": "damage",  # noqa: E501
+        "damage_inflictor": "damage_inflictor",  # noqa: E501
+        "damage_inflictor_received": "damage_inflictor_received",  # noqa: E501
+        "damage_taken": "damage_taken",  # noqa: E501
+        "deaths": "deaths",  # noqa: E501
+        "denies": "denies",  # noqa: E501
+        "dn_t": "dn_t",  # noqa: E501
+        "gold": "gold",  # noqa: E501
+        "gold_per_min": "gold_per_min",  # noqa: E501
+        "gold_reasons": "gold_reasons",  # noqa: E501
+        "gold_spent": "gold_spent",  # noqa: E501
+        "gold_t": "gold_t",  # noqa: E501
+        "hero_damage": "hero_damage",  # noqa: E501
+        "hero_healing": "hero_healing",  # noqa: E501
+        "hero_hits": "hero_hits",  # noqa: E501
+        "hero_id": "hero_id",  # noqa: E501
+        "item_0": "item_0",  # noqa: E501
+        "item_1": "item_1",  # noqa: E501
+        "item_2": "item_2",  # noqa: E501
+        "item_3": "item_3",  # noqa: E501
+        "item_4": "item_4",  # noqa: E501
+        "item_5": "item_5",  # noqa: E501
+        "item_uses": "item_uses",  # noqa: E501
+        "kill_streaks": "kill_streaks",  # noqa: E501
+        "killed": "killed",  # noqa: E501
+        "killed_by": "killed_by",  # noqa: E501
+        "kills": "kills",  # noqa: E501
+        "kills_log": "kills_log",  # noqa: E501
+        "lane_pos": "lane_pos",  # noqa: E501
+        "last_hits": "last_hits",  # noqa: E501
+        "leaver_status": "leaver_status",  # noqa: E501
+        "level": "level",  # noqa: E501
+        "lh_t": "lh_t",  # noqa: E501
+        "life_state": "life_state",  # noqa: E501
+        "max_hero_hit": "max_hero_hit",  # noqa: E501
+        "multi_kills": "multi_kills",  # noqa: E501
+        "obs": "obs",  # noqa: E501
+        "obs_left_log": "obs_left_log",  # noqa: E501
+        "obs_log": "obs_log",  # noqa: E501
+        "obs_placed": "obs_placed",  # noqa: E501
+        "party_id": "party_id",  # noqa: E501
+        "permanent_buffs": "permanent_buffs",  # noqa: E501
+        "pings": "pings",  # noqa: E501
+        "purchase": "purchase",  # noqa: E501
+        "purchase_log": "purchase_log",  # noqa: E501
+        "rune_pickups": "rune_pickups",  # noqa: E501
+        "runes": "runes",  # noqa: E501
+        "runes_log": "runes_log",  # noqa: E501
+        "sen": "sen",  # noqa: E501
+        "sen_left_log": "sen_left_log",  # noqa: E501
+        "sen_log": "sen_log",  # noqa: E501
+        "sen_placed": "sen_placed",  # noqa: E501
+        "stuns": "stuns",  # noqa: E501
+        "times": "times",  # noqa: E501
+        "tower_damage": "tower_damage",  # noqa: E501
+        "xp_per_min": "xp_per_min",  # noqa: E501
+        "xp_reasons": "xp_reasons",  # noqa: E501
+        "xp_t": "xp_t",  # noqa: E501
+        "personaname": "personaname",  # noqa: E501
+        "name": "name",  # noqa: E501
+        "last_login": "last_login",  # noqa: E501
+        "radiant_win": "radiant_win",  # noqa: E501
+        "start_time": "start_time",  # noqa: E501
+        "duration": "duration",  # noqa: E501
+        "cluster": "cluster",  # noqa: E501
+        "lobby_type": "lobby_type",  # noqa: E501
+        "game_mode": "game_mode",  # noqa: E501
+        "patch": "patch",  # noqa: E501
+        "region": "region",  # noqa: E501
+        "is_radiant": "isRadiant",  # noqa: E501
+        "win": "win",  # noqa: E501
+        "lose": "lose",  # noqa: E501
+        "total_gold": "total_gold",  # noqa: E501
+        "total_xp": "total_xp",  # noqa: E501
+        "kills_per_min": "kills_per_min",  # noqa: E501
+        "kda": "kda",  # noqa: E501
+        "abandons": "abandons",  # noqa: E501
+        "neutral_kills": "neutral_kills",  # noqa: E501
+        "tower_kills": "tower_kills",  # noqa: E501
+        "courier_kills": "courier_kills",  # noqa: E501
+        "lane_kills": "lane_kills",  # noqa: E501
+        "hero_kills": "hero_kills",  # noqa: E501
+        "observer_kills": "observer_kills",  # noqa: E501
+        "sentry_kills": "sentry_kills",  # noqa: E501
+        "roshan_kills": "roshan_kills",  # noqa: E501
+        "necronomicon_kills": "necronomicon_kills",  # noqa: E501
+        "ancient_kills": "ancient_kills",  # noqa: E501
+        "buyback_count": "buyback_count",  # noqa: E501
+        "observer_uses": "observer_uses",  # noqa: E501
+        "sentry_uses": "sentry_uses",  # noqa: E501
+        "lane_efficiency": "lane_efficiency",  # noqa: E501
+        "lane_efficiency_pct": "lane_efficiency_pct",  # noqa: E501
+        "lane": "lane",  # noqa: E501
+        "lane_role": "lane_role",  # noqa: E501
+        "is_roaming": "is_roaming",  # noqa: E501
+        "purchase_time": "purchase_time",  # noqa: E501
+        "first_purchase_time": "first_purchase_time",  # noqa: E501
+        "item_win": "item_win",  # noqa: E501
+        "item_usage": "item_usage",  # noqa: E501
+        "purchase_tpscroll": "purchase_tpscroll",  # noqa: E501
+        "actions_per_min": "actions_per_min",  # noqa: E501
+        "life_state_dead": "life_state_dead",  # noqa: E501
+        "rank_tier": "rank_tier",  # noqa: E501
+        "cosmetics": "cosmetics",  # noqa: E501
+        "benchmarks": "benchmarks",  # noqa: E501
     }
 
-    read_only_vars = {
-    }
+    read_only_vars = {}
 
     _composed_schemas = {}
 
@@ -514,11 +825,11 @@ class MatchResponsePlayers(ModelNormal):
             benchmarks (bool, date, datetime, dict, float, int, list, str, none_type): Object containing information on certain benchmarks like GPM, XPM, KDA, tower damage, etc. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", True)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         self = super(OpenApiModel, cls).__new__(cls)
 
@@ -528,7 +839,8 @@ class MatchResponsePlayers(ModelNormal):
                     kwargs.update(arg)
                 else:
                     raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
                             args,
                             self.__class__.__name__,
                         ),
@@ -544,23 +856,27 @@ class MatchResponsePlayers(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
         return self
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = set(
+        [
+            "_data_store",
+            "_check_type",
+            "_spec_property_naming",
+            "_path_to_item",
+            "_configuration",
+            "_visited_composed_classes",
+        ]
+    )
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
@@ -721,11 +1037,11 @@ class MatchResponsePlayers(ModelNormal):
             benchmarks (bool, date, datetime, dict, float, int, list, str, none_type): Object containing information on certain benchmarks like GPM, XPM, KDA, tower damage, etc. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             for arg in args:
@@ -733,7 +1049,8 @@ class MatchResponsePlayers(ModelNormal):
                     kwargs.update(arg)
                 else:
                     raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
                             args,
                             self.__class__.__name__,
                         ),
@@ -749,13 +1066,17 @@ class MatchResponsePlayers(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
-                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
-                                     f"class with read only attributes.")
+                raise ApiAttributeError(
+                    f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                    f"class with read only attributes."
+                )

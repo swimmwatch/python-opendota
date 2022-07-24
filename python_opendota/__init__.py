@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "1.0.2"
+__version__ = "2.0.0"
 
 # import ApiClient
 from python_opendota.api_client import ApiClient

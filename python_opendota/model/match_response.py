@@ -24,18 +24,23 @@ from python_opendota.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
-    OpenApiModel
+    OpenApiModel,
 )
 from python_opendota.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from python_opendota.model.match_response_chat import MatchResponseChat
-    from python_opendota.model.match_response_draft_timings import MatchResponseDraftTimings
-    from python_opendota.model.match_response_players import MatchResponsePlayers
-    globals()['MatchResponseChat'] = MatchResponseChat
-    globals()['MatchResponseDraftTimings'] = MatchResponseDraftTimings
-    globals()['MatchResponsePlayers'] = MatchResponsePlayers
+    from python_opendota.model.match_response_chat_inner import MatchResponseChatInner
+    from python_opendota.model.match_response_draft_timings_inner import (
+        MatchResponseDraftTimingsInner,
+    )
+    from python_opendota.model.match_response_players_inner import (
+        MatchResponsePlayersInner,
+    )
+
+    globals()["MatchResponseChatInner"] = MatchResponseChatInner
+    globals()["MatchResponseDraftTimingsInner"] = MatchResponseDraftTimingsInner
+    globals()["MatchResponsePlayersInner"] = MatchResponsePlayersInner
 
 
 class MatchResponse(ModelNormal):
@@ -62,11 +67,9 @@ class MatchResponse(ModelNormal):
           as additional properties values.
     """
 
-    allowed_values = {
-    }
+    allowed_values = {}
 
-    validations = {
-    }
+    validations = {}
 
     @cached_property
     def additional_properties_type():
@@ -75,7 +78,17 @@ class MatchResponse(ModelNormal):
         of type self, this must run after the class is loaded
         """
         lazy_import()
-        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
+        return (
+            bool,
+            date,
+            datetime,
+            dict,
+            float,
+            int,
+            list,
+            str,
+            none_type,
+        )  # noqa: E501
 
     _nullable = False
 
@@ -91,110 +104,218 @@ class MatchResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'match_id': (int,),  # noqa: E501
-            'barracks_status_dire': (int,),  # noqa: E501
-            'barracks_status_radiant': (int,),  # noqa: E501
-            'chat': ([MatchResponseChat],),  # noqa: E501
-            'cluster': (int,),  # noqa: E501
-            'cosmetics': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'dire_score': (int,),  # noqa: E501
-            'draft_timings': ([MatchResponseDraftTimings],),  # noqa: E501
-            'duration': (int,),  # noqa: E501
-            'engine': (int,),  # noqa: E501
-            'first_blood_time': (int,),  # noqa: E501
-            'game_mode': (int,),  # noqa: E501
-            'human_players': (int,),  # noqa: E501
-            'leagueid': (int,),  # noqa: E501
-            'lobby_type': (int,),  # noqa: E501
-            'match_seq_num': (int,),  # noqa: E501
-            'negative_votes': (int,),  # noqa: E501
-            'objectives': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'picks_bans': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'positive_votes': (int,),  # noqa: E501
-            'radiant_gold_adv': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'radiant_score': (int,),  # noqa: E501
-            'radiant_win': (bool,),  # noqa: E501
-            'radiant_xp_adv': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'start_time': (int,),  # noqa: E501
-            'teamfights': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'tower_status_dire': (int,),  # noqa: E501
-            'tower_status_radiant': (int,),  # noqa: E501
-            'version': (int,),  # noqa: E501
-            'replay_salt': (int,),  # noqa: E501
-            'series_id': (int,),  # noqa: E501
-            'series_type': (int,),  # noqa: E501
-            'radiant_team': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'dire_team': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'league': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'skill': (int,),  # noqa: E501
-            'players': ([MatchResponsePlayers],),  # noqa: E501
-            'patch': (int,),  # noqa: E501
-            'region': (int,),  # noqa: E501
-            'all_word_counts': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'my_word_counts': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'throw': (int,),  # noqa: E501
-            'comeback': (int,),  # noqa: E501
-            'loss': (int,),  # noqa: E501
-            'win': (int,),  # noqa: E501
-            'replay_url': (str,),  # noqa: E501
+            "match_id": (int,),  # noqa: E501
+            "barracks_status_dire": (int,),  # noqa: E501
+            "barracks_status_radiant": (int,),  # noqa: E501
+            "chat": ([MatchResponseChatInner],),  # noqa: E501
+            "cluster": (int,),  # noqa: E501
+            "cosmetics": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "dire_score": (int,),  # noqa: E501
+            "draft_timings": ([MatchResponseDraftTimingsInner],),  # noqa: E501
+            "duration": (int,),  # noqa: E501
+            "engine": (int,),  # noqa: E501
+            "first_blood_time": (int,),  # noqa: E501
+            "game_mode": (int,),  # noqa: E501
+            "human_players": (int,),  # noqa: E501
+            "leagueid": (int,),  # noqa: E501
+            "lobby_type": (int,),  # noqa: E501
+            "match_seq_num": (int,),  # noqa: E501
+            "negative_votes": (int,),  # noqa: E501
+            "objectives": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "picks_bans": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "positive_votes": (int,),  # noqa: E501
+            "radiant_gold_adv": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "radiant_score": (int,),  # noqa: E501
+            "radiant_win": (bool,),  # noqa: E501
+            "radiant_xp_adv": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "start_time": (int,),  # noqa: E501
+            "teamfights": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "tower_status_dire": (int,),  # noqa: E501
+            "tower_status_radiant": (int,),  # noqa: E501
+            "version": (int,),  # noqa: E501
+            "replay_salt": (int,),  # noqa: E501
+            "series_id": (int,),  # noqa: E501
+            "series_type": (int,),  # noqa: E501
+            "radiant_team": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "dire_team": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "league": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "skill": (int,),  # noqa: E501
+            "players": ([MatchResponsePlayersInner],),  # noqa: E501
+            "patch": (int,),  # noqa: E501
+            "region": (int,),  # noqa: E501
+            "all_word_counts": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "my_word_counts": (
+                bool,
+                date,
+                datetime,
+                dict,
+                float,
+                int,
+                list,
+                str,
+                none_type,
+            ),  # noqa: E501
+            "throw": (int,),  # noqa: E501
+            "comeback": (int,),  # noqa: E501
+            "loss": (int,),  # noqa: E501
+            "win": (int,),  # noqa: E501
+            "replay_url": (str,),  # noqa: E501
         }
 
     @cached_property
     def discriminator():
         return None
 
-
     attribute_map = {
-        'match_id': 'match_id',  # noqa: E501
-        'barracks_status_dire': 'barracks_status_dire',  # noqa: E501
-        'barracks_status_radiant': 'barracks_status_radiant',  # noqa: E501
-        'chat': 'chat',  # noqa: E501
-        'cluster': 'cluster',  # noqa: E501
-        'cosmetics': 'cosmetics',  # noqa: E501
-        'dire_score': 'dire_score',  # noqa: E501
-        'draft_timings': 'draft_timings',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
-        'engine': 'engine',  # noqa: E501
-        'first_blood_time': 'first_blood_time',  # noqa: E501
-        'game_mode': 'game_mode',  # noqa: E501
-        'human_players': 'human_players',  # noqa: E501
-        'leagueid': 'leagueid',  # noqa: E501
-        'lobby_type': 'lobby_type',  # noqa: E501
-        'match_seq_num': 'match_seq_num',  # noqa: E501
-        'negative_votes': 'negative_votes',  # noqa: E501
-        'objectives': 'objectives',  # noqa: E501
-        'picks_bans': 'picks_bans',  # noqa: E501
-        'positive_votes': 'positive_votes',  # noqa: E501
-        'radiant_gold_adv': 'radiant_gold_adv',  # noqa: E501
-        'radiant_score': 'radiant_score',  # noqa: E501
-        'radiant_win': 'radiant_win',  # noqa: E501
-        'radiant_xp_adv': 'radiant_xp_adv',  # noqa: E501
-        'start_time': 'start_time',  # noqa: E501
-        'teamfights': 'teamfights',  # noqa: E501
-        'tower_status_dire': 'tower_status_dire',  # noqa: E501
-        'tower_status_radiant': 'tower_status_radiant',  # noqa: E501
-        'version': 'version',  # noqa: E501
-        'replay_salt': 'replay_salt',  # noqa: E501
-        'series_id': 'series_id',  # noqa: E501
-        'series_type': 'series_type',  # noqa: E501
-        'radiant_team': 'radiant_team',  # noqa: E501
-        'dire_team': 'dire_team',  # noqa: E501
-        'league': 'league',  # noqa: E501
-        'skill': 'skill',  # noqa: E501
-        'players': 'players',  # noqa: E501
-        'patch': 'patch',  # noqa: E501
-        'region': 'region',  # noqa: E501
-        'all_word_counts': 'all_word_counts',  # noqa: E501
-        'my_word_counts': 'my_word_counts',  # noqa: E501
-        'throw': 'throw',  # noqa: E501
-        'comeback': 'comeback',  # noqa: E501
-        'loss': 'loss',  # noqa: E501
-        'win': 'win',  # noqa: E501
-        'replay_url': 'replay_url',  # noqa: E501
+        "match_id": "match_id",  # noqa: E501
+        "barracks_status_dire": "barracks_status_dire",  # noqa: E501
+        "barracks_status_radiant": "barracks_status_radiant",  # noqa: E501
+        "chat": "chat",  # noqa: E501
+        "cluster": "cluster",  # noqa: E501
+        "cosmetics": "cosmetics",  # noqa: E501
+        "dire_score": "dire_score",  # noqa: E501
+        "draft_timings": "draft_timings",  # noqa: E501
+        "duration": "duration",  # noqa: E501
+        "engine": "engine",  # noqa: E501
+        "first_blood_time": "first_blood_time",  # noqa: E501
+        "game_mode": "game_mode",  # noqa: E501
+        "human_players": "human_players",  # noqa: E501
+        "leagueid": "leagueid",  # noqa: E501
+        "lobby_type": "lobby_type",  # noqa: E501
+        "match_seq_num": "match_seq_num",  # noqa: E501
+        "negative_votes": "negative_votes",  # noqa: E501
+        "objectives": "objectives",  # noqa: E501
+        "picks_bans": "picks_bans",  # noqa: E501
+        "positive_votes": "positive_votes",  # noqa: E501
+        "radiant_gold_adv": "radiant_gold_adv",  # noqa: E501
+        "radiant_score": "radiant_score",  # noqa: E501
+        "radiant_win": "radiant_win",  # noqa: E501
+        "radiant_xp_adv": "radiant_xp_adv",  # noqa: E501
+        "start_time": "start_time",  # noqa: E501
+        "teamfights": "teamfights",  # noqa: E501
+        "tower_status_dire": "tower_status_dire",  # noqa: E501
+        "tower_status_radiant": "tower_status_radiant",  # noqa: E501
+        "version": "version",  # noqa: E501
+        "replay_salt": "replay_salt",  # noqa: E501
+        "series_id": "series_id",  # noqa: E501
+        "series_type": "series_type",  # noqa: E501
+        "radiant_team": "radiant_team",  # noqa: E501
+        "dire_team": "dire_team",  # noqa: E501
+        "league": "league",  # noqa: E501
+        "skill": "skill",  # noqa: E501
+        "players": "players",  # noqa: E501
+        "patch": "patch",  # noqa: E501
+        "region": "region",  # noqa: E501
+        "all_word_counts": "all_word_counts",  # noqa: E501
+        "my_word_counts": "my_word_counts",  # noqa: E501
+        "throw": "throw",  # noqa: E501
+        "comeback": "comeback",  # noqa: E501
+        "loss": "loss",  # noqa: E501
+        "win": "win",  # noqa: E501
+        "replay_url": "replay_url",  # noqa: E501
     }
 
-    read_only_vars = {
-    }
+    read_only_vars = {}
 
     _composed_schemas = {}
 
@@ -237,11 +358,11 @@ class MatchResponse(ModelNormal):
             match_id (int): The ID number of the match assigned by Valve. [optional]  # noqa: E501
             barracks_status_dire (int): Bitmask. An integer that represents a binary of which barracks are still standing. 63 would mean all barracks still stand at the end of the game.. [optional]  # noqa: E501
             barracks_status_radiant (int): Bitmask. An integer that represents a binary of which barracks are still standing. 63 would mean all barracks still stand at the end of the game.. [optional]  # noqa: E501
-            chat ([MatchResponseChat]): Array containing information on the chat of the game. [optional]  # noqa: E501
+            chat ([MatchResponseChatInner]): Array containing information on the chat of the game. [optional]  # noqa: E501
             cluster (int): cluster. [optional]  # noqa: E501
             cosmetics (bool, date, datetime, dict, float, int, list, str, none_type): cosmetics. [optional]  # noqa: E501
             dire_score (int): Final score for Dire (number of kills on Radiant). [optional]  # noqa: E501
-            draft_timings ([MatchResponseDraftTimings]): draft_timings. [optional]  # noqa: E501
+            draft_timings ([MatchResponseDraftTimingsInner]): draft_timings. [optional]  # noqa: E501
             duration (int): Duration of the game in seconds. [optional]  # noqa: E501
             engine (int): engine. [optional]  # noqa: E501
             first_blood_time (int): Time in seconds at which first blood occurred. [optional]  # noqa: E501
@@ -270,7 +391,7 @@ class MatchResponse(ModelNormal):
             dire_team (bool, date, datetime, dict, float, int, list, str, none_type): dire_team. [optional]  # noqa: E501
             league (bool, date, datetime, dict, float, int, list, str, none_type): league. [optional]  # noqa: E501
             skill (int): Skill bracket assigned by Valve (Normal, High, Very High). [optional]  # noqa: E501
-            players ([MatchResponsePlayers]): Array of information on individual players. [optional]  # noqa: E501
+            players ([MatchResponsePlayersInner]): Array of information on individual players. [optional]  # noqa: E501
             patch (int): Information on the patch version the game is played on. [optional]  # noqa: E501
             region (int): Integer corresponding to the region the game was played on. [optional]  # noqa: E501
             all_word_counts (bool, date, datetime, dict, float, int, list, str, none_type): Word counts of the all chat messages in the player's games. [optional]  # noqa: E501
@@ -282,11 +403,11 @@ class MatchResponse(ModelNormal):
             replay_url (str): replay_url. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", True)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         self = super(OpenApiModel, cls).__new__(cls)
 
@@ -296,7 +417,8 @@ class MatchResponse(ModelNormal):
                     kwargs.update(arg)
                 else:
                     raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
                             args,
                             self.__class__.__name__,
                         ),
@@ -312,23 +434,27 @@ class MatchResponse(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
         return self
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = set(
+        [
+            "_data_store",
+            "_check_type",
+            "_spec_property_naming",
+            "_path_to_item",
+            "_configuration",
+            "_visited_composed_classes",
+        ]
+    )
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
@@ -368,11 +494,11 @@ class MatchResponse(ModelNormal):
             match_id (int): The ID number of the match assigned by Valve. [optional]  # noqa: E501
             barracks_status_dire (int): Bitmask. An integer that represents a binary of which barracks are still standing. 63 would mean all barracks still stand at the end of the game.. [optional]  # noqa: E501
             barracks_status_radiant (int): Bitmask. An integer that represents a binary of which barracks are still standing. 63 would mean all barracks still stand at the end of the game.. [optional]  # noqa: E501
-            chat ([MatchResponseChat]): Array containing information on the chat of the game. [optional]  # noqa: E501
+            chat ([MatchResponseChatInner]): Array containing information on the chat of the game. [optional]  # noqa: E501
             cluster (int): cluster. [optional]  # noqa: E501
             cosmetics (bool, date, datetime, dict, float, int, list, str, none_type): cosmetics. [optional]  # noqa: E501
             dire_score (int): Final score for Dire (number of kills on Radiant). [optional]  # noqa: E501
-            draft_timings ([MatchResponseDraftTimings]): draft_timings. [optional]  # noqa: E501
+            draft_timings ([MatchResponseDraftTimingsInner]): draft_timings. [optional]  # noqa: E501
             duration (int): Duration of the game in seconds. [optional]  # noqa: E501
             engine (int): engine. [optional]  # noqa: E501
             first_blood_time (int): Time in seconds at which first blood occurred. [optional]  # noqa: E501
@@ -401,7 +527,7 @@ class MatchResponse(ModelNormal):
             dire_team (bool, date, datetime, dict, float, int, list, str, none_type): dire_team. [optional]  # noqa: E501
             league (bool, date, datetime, dict, float, int, list, str, none_type): league. [optional]  # noqa: E501
             skill (int): Skill bracket assigned by Valve (Normal, High, Very High). [optional]  # noqa: E501
-            players ([MatchResponsePlayers]): Array of information on individual players. [optional]  # noqa: E501
+            players ([MatchResponsePlayersInner]): Array of information on individual players. [optional]  # noqa: E501
             patch (int): Information on the patch version the game is played on. [optional]  # noqa: E501
             region (int): Integer corresponding to the region the game was played on. [optional]  # noqa: E501
             all_word_counts (bool, date, datetime, dict, float, int, list, str, none_type): Word counts of the all chat messages in the player's games. [optional]  # noqa: E501
@@ -413,11 +539,11 @@ class MatchResponse(ModelNormal):
             replay_url (str): replay_url. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             for arg in args:
@@ -425,7 +551,8 @@ class MatchResponse(ModelNormal):
                     kwargs.update(arg)
                 else:
                     raise ApiTypeError(
-                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
                             args,
                             self.__class__.__name__,
                         ),
@@ -441,13 +568,17 @@ class MatchResponse(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
             if var_name in self.read_only_vars:
-                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
-                                     f"class with read only attributes.")
+                raise ApiAttributeError(
+                    f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                    f"class with read only attributes."
+                )

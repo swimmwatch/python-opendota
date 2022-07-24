@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **deaths** | **int** | Total deaths the player had at the end of the game | [optional] 
 **assists** | **int** | Total assists the player had at the end of the game | [optional] 
 **skill** | **int** | Skill bracket assigned by Valve (Normal, High, Very High) | [optional] 
+**average_rank** | **int** | Average rank of players with public match data | [optional] 
 **leaver_status** | **int** | Integer describing whether or not the player left the game. 0: didn&#39;t leave. 1: left safely. 2+: Abandoned | [optional] 
 **party_size** | **int** | Size of the player&#39;s party | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -19,7 +19,7 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 from python_opendota.model.parsed_matches_response import ParsedMatchesResponse
 
@@ -37,56 +37,44 @@ class ParsedMatchesApi(object):
         self.api_client = api_client
         self.parsed_matches_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([ParsedMatchesResponse],),
-                'auth': [],
-                'endpoint_path': '/parsedMatches',
-                'operation_id': 'parsed_matches_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([ParsedMatchesResponse],),
+                "auth": [],
+                "endpoint_path": "/parsedMatches",
+                "operation_id": "parsed_matches_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'less_than_match_id',
+                "all": [
+                    "less_than_match_id",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "less_than_match_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "less_than_match_id": "less_than_match_id",
                 },
-                'openapi_types': {
-                    'less_than_match_id':
-                        (int,),
+                "location_map": {
+                    "less_than_match_id": "query",
                 },
-                'attribute_map': {
-                    'less_than_match_id': 'less_than_match_id',
-                },
-                'location_map': {
-                    'less_than_match_id': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def parsed_matches_get(
-        self,
-        **kwargs
-    ):
+    def parsed_matches_get(self, **kwargs):
         """GET /parsedMatches  # noqa: E501
 
         Get list of parsed match IDs  # noqa: E501
@@ -135,30 +123,14 @@ class ParsedMatchesApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
         return self.parsed_matches_get_endpoint.call_with_http_info(**kwargs)
-

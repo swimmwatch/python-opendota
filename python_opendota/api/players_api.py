@@ -19,7 +19,7 @@ from python_opendota.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 from python_opendota.model.player_counts_response import PlayerCountsResponse
 from python_opendota.model.player_heroes_response import PlayerHeroesResponse
@@ -28,7 +28,9 @@ from python_opendota.model.player_peers_response import PlayerPeersResponse
 from python_opendota.model.player_pros_response import PlayerProsResponse
 from python_opendota.model.player_rankings_response import PlayerRankingsResponse
 from python_opendota.model.player_ratings_response import PlayerRatingsResponse
-from python_opendota.model.player_recent_matches_response import PlayerRecentMatchesResponse
+from python_opendota.model.player_recent_matches_response import (
+    PlayerRecentMatchesResponse,
+)
 from python_opendota.model.player_response import PlayerResponse
 from python_opendota.model.player_totals_response import PlayerTotalsResponse
 from python_opendota.model.player_ward_map_response import PlayerWardMapResponse
@@ -49,1656 +51,1347 @@ class PlayersApi(object):
         self.api_client = api_client
         self.players_account_id_counts_get_endpoint = _Endpoint(
             settings={
-                'response_type': (PlayerCountsResponse,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/counts',
-                'operation_id': 'players_account_id_counts_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (PlayerCountsResponse,),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/counts",
+                "operation_id": "players_account_id_counts_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_get_endpoint = _Endpoint(
             settings={
-                'response_type': (PlayerResponse,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}',
-                'operation_id': 'players_account_id_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (PlayerResponse,),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}",
+                "operation_id": "players_account_id_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
+                "all": [
+                    "account_id",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
+                "location_map": {
+                    "account_id": "path",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_heroes_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerHeroesResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/heroes',
-                'operation_id': 'players_account_id_heroes_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerHeroesResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/heroes",
+                "operation_id": "players_account_id_heroes_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_histograms_field_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([bool, date, datetime, dict, float, int, list, str, none_type],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/histograms/{field}',
-                'operation_id': 'players_account_id_histograms_field_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (
+                    [bool, date, datetime, dict, float, int, list, str, none_type],
+                ),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/histograms/{field}",
+                "operation_id": "players_account_id_histograms_field_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'field',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "field",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
-                    'field',
+                "required": [
+                    "account_id",
+                    "field",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "field": (str,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "field": "field",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'field':
-                        (str,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "field": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'field': 'field',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'field': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_matches_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerMatchesResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/matches',
-                'operation_id': 'players_account_id_matches_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerMatchesResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/matches",
+                "operation_id": "players_account_id_matches_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
-                    'project',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
+                    "project",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
+                    "project": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
+                    "project": "project",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
-                    'project':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
+                    "project": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                    'project': 'project',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                    'project': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_peers_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerPeersResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/peers',
-                'operation_id': 'players_account_id_peers_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerPeersResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/peers",
+                "operation_id": "players_account_id_peers_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_pros_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerProsResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/pros',
-                'operation_id': 'players_account_id_pros_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerProsResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/pros",
+                "operation_id": "players_account_id_pros_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_rankings_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerRankingsResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/rankings',
-                'operation_id': 'players_account_id_rankings_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerRankingsResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/rankings",
+                "operation_id": "players_account_id_rankings_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
+                "all": [
+                    "account_id",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
+                "location_map": {
+                    "account_id": "path",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_ratings_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerRatingsResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/ratings',
-                'operation_id': 'players_account_id_ratings_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerRatingsResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/ratings",
+                "operation_id": "players_account_id_ratings_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
+                "all": [
+                    "account_id",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
+                "location_map": {
+                    "account_id": "path",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_recent_matches_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerRecentMatchesResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/recentMatches',
-                'operation_id': 'players_account_id_recent_matches_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerRecentMatchesResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/recentMatches",
+                "operation_id": "players_account_id_recent_matches_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
+                "all": [
+                    "account_id",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
+                "location_map": {
+                    "account_id": "path",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_refresh_post_endpoint = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/refresh',
-                'operation_id': 'players_account_id_refresh_post',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (
+                    bool,
+                    date,
+                    datetime,
+                    dict,
+                    float,
+                    int,
+                    list,
+                    str,
+                    none_type,
+                ),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/refresh",
+                "operation_id": "players_account_id_refresh_post",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
+                "all": [
+                    "account_id",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
+                "location_map": {
+                    "account_id": "path",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_totals_get_endpoint = _Endpoint(
             settings={
-                'response_type': ([PlayerTotalsResponse],),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/totals',
-                'operation_id': 'players_account_id_totals_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": ([PlayerTotalsResponse],),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/totals",
+                "operation_id": "players_account_id_totals_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_wardmap_get_endpoint = _Endpoint(
             settings={
-                'response_type': (PlayerWardMapResponse,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/wardmap',
-                'operation_id': 'players_account_id_wardmap_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (PlayerWardMapResponse,),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/wardmap",
+                "operation_id": "players_account_id_wardmap_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_wl_get_endpoint = _Endpoint(
             settings={
-                'response_type': (PlayerWinLossResponse,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/wl',
-                'operation_id': 'players_account_id_wl_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (PlayerWinLossResponse,),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/wl",
+                "operation_id": "players_account_id_wl_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
         self.players_account_id_wordcloud_get_endpoint = _Endpoint(
             settings={
-                'response_type': (PlayerWordCloudResponse,),
-                'auth': [],
-                'endpoint_path': '/players/{account_id}/wordcloud',
-                'operation_id': 'players_account_id_wordcloud_get',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (PlayerWordCloudResponse,),
+                "auth": [],
+                "endpoint_path": "/players/{account_id}/wordcloud",
+                "operation_id": "players_account_id_wordcloud_get",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'account_id',
-                    'limit',
-                    'offset',
-                    'win',
-                    'patch',
-                    'game_mode',
-                    'lobby_type',
-                    'region',
-                    'date',
-                    'lane_role',
-                    'hero_id',
-                    'is_radiant',
-                    'included_account_id',
-                    'excluded_account_id',
-                    'with_hero_id',
-                    'against_hero_id',
-                    'significant',
-                    'having',
-                    'sort',
+                "all": [
+                    "account_id",
+                    "limit",
+                    "offset",
+                    "win",
+                    "patch",
+                    "game_mode",
+                    "lobby_type",
+                    "region",
+                    "date",
+                    "lane_role",
+                    "hero_id",
+                    "is_radiant",
+                    "included_account_id",
+                    "excluded_account_id",
+                    "with_hero_id",
+                    "against_hero_id",
+                    "significant",
+                    "having",
+                    "sort",
                 ],
-                'required': [
-                    'account_id',
+                "required": [
+                    "account_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "account_id": (int,),
+                    "limit": (int,),
+                    "offset": (int,),
+                    "win": (int,),
+                    "patch": (int,),
+                    "game_mode": (int,),
+                    "lobby_type": (int,),
+                    "region": (int,),
+                    "date": (int,),
+                    "lane_role": (int,),
+                    "hero_id": (int,),
+                    "is_radiant": (int,),
+                    "included_account_id": (int,),
+                    "excluded_account_id": (int,),
+                    "with_hero_id": (int,),
+                    "against_hero_id": (int,),
+                    "significant": (int,),
+                    "having": (int,),
+                    "sort": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "account_id": "account_id",
+                    "limit": "limit",
+                    "offset": "offset",
+                    "win": "win",
+                    "patch": "patch",
+                    "game_mode": "game_mode",
+                    "lobby_type": "lobby_type",
+                    "region": "region",
+                    "date": "date",
+                    "lane_role": "lane_role",
+                    "hero_id": "hero_id",
+                    "is_radiant": "is_radiant",
+                    "included_account_id": "included_account_id",
+                    "excluded_account_id": "excluded_account_id",
+                    "with_hero_id": "with_hero_id",
+                    "against_hero_id": "against_hero_id",
+                    "significant": "significant",
+                    "having": "having",
+                    "sort": "sort",
                 },
-                'openapi_types': {
-                    'account_id':
-                        (int,),
-                    'limit':
-                        (int,),
-                    'offset':
-                        (int,),
-                    'win':
-                        (int,),
-                    'patch':
-                        (int,),
-                    'game_mode':
-                        (int,),
-                    'lobby_type':
-                        (int,),
-                    'region':
-                        (int,),
-                    'date':
-                        (int,),
-                    'lane_role':
-                        (int,),
-                    'hero_id':
-                        (int,),
-                    'is_radiant':
-                        (int,),
-                    'included_account_id':
-                        (int,),
-                    'excluded_account_id':
-                        (int,),
-                    'with_hero_id':
-                        (int,),
-                    'against_hero_id':
-                        (int,),
-                    'significant':
-                        (int,),
-                    'having':
-                        (int,),
-                    'sort':
-                        (str,),
+                "location_map": {
+                    "account_id": "path",
+                    "limit": "query",
+                    "offset": "query",
+                    "win": "query",
+                    "patch": "query",
+                    "game_mode": "query",
+                    "lobby_type": "query",
+                    "region": "query",
+                    "date": "query",
+                    "lane_role": "query",
+                    "hero_id": "query",
+                    "is_radiant": "query",
+                    "included_account_id": "query",
+                    "excluded_account_id": "query",
+                    "with_hero_id": "query",
+                    "against_hero_id": "query",
+                    "significant": "query",
+                    "having": "query",
+                    "sort": "query",
                 },
-                'attribute_map': {
-                    'account_id': 'account_id',
-                    'limit': 'limit',
-                    'offset': 'offset',
-                    'win': 'win',
-                    'patch': 'patch',
-                    'game_mode': 'game_mode',
-                    'lobby_type': 'lobby_type',
-                    'region': 'region',
-                    'date': 'date',
-                    'lane_role': 'lane_role',
-                    'hero_id': 'hero_id',
-                    'is_radiant': 'is_radiant',
-                    'included_account_id': 'included_account_id',
-                    'excluded_account_id': 'excluded_account_id',
-                    'with_hero_id': 'with_hero_id',
-                    'against_hero_id': 'against_hero_id',
-                    'significant': 'significant',
-                    'having': 'having',
-                    'sort': 'sort',
-                },
-                'location_map': {
-                    'account_id': 'path',
-                    'limit': 'query',
-                    'offset': 'query',
-                    'win': 'query',
-                    'patch': 'query',
-                    'game_mode': 'query',
-                    'lobby_type': 'query',
-                    'region': 'query',
-                    'date': 'query',
-                    'lane_role': 'query',
-                    'hero_id': 'query',
-                    'is_radiant': 'query',
-                    'included_account_id': 'query',
-                    'excluded_account_id': 'query',
-                    'with_hero_id': 'query',
-                    'against_hero_id': 'query',
-                    'significant': 'query',
-                    'having': 'query',
-                    'sort': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
-            api_client=api_client
+            api_client=api_client,
         )
 
-    def players_account_id_counts_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_counts_get(self, account_id, **kwargs):
         """GET /players/{account_id}/counts  # noqa: E501
 
         Counts in categories  # noqa: E501
@@ -1766,40 +1459,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_counts_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_get(self, account_id, **kwargs):
         """GET /players/{account_id}  # noqa: E501
 
         Player data  # noqa: E501
@@ -1849,40 +1522,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_heroes_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_heroes_get(self, account_id, **kwargs):
         """GET /players/{account_id}/heroes  # noqa: E501
 
         Heroes played  # noqa: E501
@@ -1950,41 +1603,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_heroes_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_histograms_field_get(
-        self,
-        account_id,
-        field,
-        **kwargs
-    ):
+    def players_account_id_histograms_field_get(self, account_id, field, **kwargs):
         """GET /players/{account_id}/histograms  # noqa: E501
 
         Distribution of matches in a single stat  # noqa: E501
@@ -2053,42 +1685,25 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        kwargs["field"] = field
+        return (
+            self.players_account_id_histograms_field_get_endpoint.call_with_http_info(
+                **kwargs
+            )
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        kwargs['field'] = \
-            field
-        return self.players_account_id_histograms_field_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_matches_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_matches_get(self, account_id, **kwargs):
         """GET /players/{account_id}/matches  # noqa: E501
 
         Matches played  # noqa: E501
@@ -2157,40 +1772,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_matches_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_matches_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_peers_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_peers_get(self, account_id, **kwargs):
         """GET /players/{account_id}/peers  # noqa: E501
 
         Players played with  # noqa: E501
@@ -2258,40 +1855,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_peers_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_pros_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_pros_get(self, account_id, **kwargs):
         """GET /players/{account_id}/pros  # noqa: E501
 
         Pro players played with  # noqa: E501
@@ -2359,40 +1936,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_pros_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_rankings_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_rankings_get(self, account_id, **kwargs):
         """GET /players/{account_id}/rankings  # noqa: E501
 
         Player hero rankings  # noqa: E501
@@ -2442,40 +1999,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_rankings_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_rankings_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_ratings_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_ratings_get(self, account_id, **kwargs):
         """GET /players/{account_id}/ratings  # noqa: E501
 
         Player rating history  # noqa: E501
@@ -2525,40 +2064,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_ratings_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_ratings_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_recent_matches_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_recent_matches_get(self, account_id, **kwargs):
         """GET /players/{account_id}/recentMatches  # noqa: E501
 
         Recent matches played  # noqa: E501
@@ -2608,40 +2129,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_recent_matches_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_recent_matches_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_refresh_post(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_refresh_post(self, account_id, **kwargs):
         """POST /players/{account_id}/refresh  # noqa: E501
 
         Refresh player match history  # noqa: E501
@@ -2691,40 +2194,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_refresh_post_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_refresh_post_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_totals_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_totals_get(self, account_id, **kwargs):
         """GET /players/{account_id}/totals  # noqa: E501
 
         Totals in stats  # noqa: E501
@@ -2792,40 +2277,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_totals_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_wardmap_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_wardmap_get(self, account_id, **kwargs):
         """GET /players/{account_id}/wardmap  # noqa: E501
 
         Wards placed in matches played  # noqa: E501
@@ -2893,40 +2358,22 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_wardmap_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_wardmap_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_wl_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_wl_get(self, account_id, **kwargs):
         """GET /players/{account_id}/wl  # noqa: E501
 
         Win/Loss count  # noqa: E501
@@ -2994,40 +2441,20 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
         return self.players_account_id_wl_get_endpoint.call_with_http_info(**kwargs)
 
-    def players_account_id_wordcloud_get(
-        self,
-        account_id,
-        **kwargs
-    ):
+    def players_account_id_wordcloud_get(self, account_id, **kwargs):
         """GET /players/{account_id}/wordcloud  # noqa: E501
 
         Words said/read in matches played  # noqa: E501
@@ -3095,32 +2522,17 @@ class PlayersApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
+        kwargs["async_req"] = kwargs.get("async_req", False)
+        kwargs["_return_http_data_only"] = kwargs.get("_return_http_data_only", True)
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+        kwargs["_request_auths"] = kwargs.get("_request_auths", None)
+        kwargs["account_id"] = account_id
+        return self.players_account_id_wordcloud_get_endpoint.call_with_http_info(
+            **kwargs
         )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['account_id'] = \
-            account_id
-        return self.players_account_id_wordcloud_get_endpoint.call_with_http_info(**kwargs)
-

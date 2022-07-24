@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tracked_until** | **str** | tracked_until | [optional] 
 **solo_competitive_rank** | **int** | solo_competitive_rank | [optional] 
 **competitive_rank** | **int** | competitive_rank | [optional] 
 **rank_tier** | **float** | rank_tier | [optional] 
