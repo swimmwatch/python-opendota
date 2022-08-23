@@ -15,7 +15,7 @@ jobs:
       - name: "Setup Python"
         uses: actions/setup-python@v4
       - name: "Setup Poetry"
-        uses: abatilo/actions-poetry@v2.1.5
+        uses: abatilo/actions-poetry@v2.1.6
         with:
           poetry-version: "1.1.12"
       - name: "Build package"
