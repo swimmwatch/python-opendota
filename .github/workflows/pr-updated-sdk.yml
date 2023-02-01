@@ -54,6 +54,8 @@ jobs:
         uses: WyriHaximus/github-action-get-previous-tag@v1
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          prefix: "v"
       - name: "Detect appropriate new package version"
         uses: swimmwatch/openapi-diff-semver-bump@v1.0.1
         id: updated-version
