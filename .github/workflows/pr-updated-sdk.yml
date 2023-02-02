@@ -57,11 +57,11 @@ jobs:
         id: updated-version
         with:
           package-version: ${{ steps.get-latest-tag.outputs.tag }}
-          updated-state: ${{needs.diff-spec.outputs.state}}
+          updated-state: ${{ needs.diff-spec.outputs.state }}
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk
         with:
-          package-version: ${{steps.update-version.outputs.new-package-version}}
+          package-version: ${{steps.update-version.outputs.new_package_version}}
           spec-path: ".openapi-generator/spec.json"
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
