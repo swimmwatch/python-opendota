@@ -50,17 +50,13 @@ jobs:
       - name: "Update old specification file"
         run: mv spec.json .openapi-generator/spec.json
       - name: 'Get previous tag'
-        id: previous-tag
-        uses: WyriHaximus/github-action-get-previous-tag@v1.3.0
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        with:
-          prefix: "v"
+        id: get-latest-tag
+        uses: actions-ecosystem/action-get-latest-tag@v1
       - name: "Detect appropriate new package version"
         uses: swimmwatch/openapi-diff-semver-bump@v1.0.1
         id: updated-version
         with:
-          package-version: ${{steps.previous-tag.outputs.tag}}
+          package-version: ${{ steps.get-latest-tag.outputs.tag }}
           updated-state: ${{needs.diff-spec.outputs.state}}
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk
