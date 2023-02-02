@@ -61,7 +61,7 @@ jobs:
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk
         with:
-          package-version: ${{steps.update-version.outputs.new_package_version}}
+          package-version: ${{ steps.updated-version.outputs.new_package_version }}
           spec-path: ".openapi-generator/spec.json"
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
