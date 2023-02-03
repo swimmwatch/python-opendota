@@ -17,6 +17,14 @@ jobs:
         uses: actions/checkout@v3
       - name: "Download new OpenDota API spec"
         run: wget https://api.opendota.com/api --output-document spec.json
+      - name: "Convert downloaded spec to v3"
+        run: |
+          curl --request POST \
+               --data @spec.json \
+               --header 'Content-Type: application/json' \
+               'https://converter.swagger.io/api/convert' \
+                --output spec.json
+        shell: bash
       - name: "Compare downloaded specification and current"
         uses: swimmwatch/openapi-diff-action@v1.0.1
         id: compare_state
