@@ -74,12 +74,12 @@ jobs:
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: "dev"
-          branch: "update-v${{steps.update-version.outputs.new-package-version}}"
-          title: "Update package v${{steps.update-version.outputs.new-package-version}}"
+          branch: "update-v${{ steps.updated-version.outputs.new-package-version }}"
+          title: "Update package v${{ steps.updated-version.outputs.new-package-version }}"
           labels: |
             enhancement
-          body: ${{needs.diff-spec.outputs.markdown-changes}}
+          body: ${{ needs.diff-spec.outputs.markdown-changes }}
           assignees: "swimmwatch"
           committer: "GitHub <noreply@github.com>"
