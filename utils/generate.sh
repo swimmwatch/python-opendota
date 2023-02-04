@@ -13,5 +13,5 @@ docker run --rm \
   --ignore-file-override /local/.openapi-generator-ignore \
   --global-property=apiTests=false,modelTests=false \
   --config /local/config.yml \
-  --additional-properties=packageVersion="$PACKAGE_VERSION" \
+  --additional-properties=templateEngine=mustache,packageVersion="$PACKAGE_VERSION" \
   --output /local
