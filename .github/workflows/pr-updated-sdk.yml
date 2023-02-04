@@ -74,6 +74,8 @@ jobs:
       - name: "Stage changes"
         run: |
           sudo chown -R $USER:$USER .git/*;
+          git config --global user.email "team@openapitools.org";
+          git config --global user.name "OpenAPI Generator community";
           git commit -a;
         shell: bash
       - name: "Create PR"
