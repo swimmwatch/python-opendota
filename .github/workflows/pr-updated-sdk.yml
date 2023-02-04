@@ -74,10 +74,6 @@ jobs:
       - name: "Stage changes"
         run: |
           sudo chown -R $USER:$USER .git/*;
-          git config --global user.email "team@openapitools.org";
-          git config --global user.name "OpenAPI Generator community";
-          git add -A;
-          git commit -a -m "Update package to v${{ steps.updated-version.outputs.new-package-version }}";
         shell: bash
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
@@ -92,3 +88,6 @@ jobs:
           assignees: "swimmwatch"
           reviewers: "swimmwatch"
           committer: "GitHub <noreply@github.com>"
+          commit-message: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
