@@ -76,7 +76,8 @@ jobs:
           sudo chown -R $USER:$USER .git/*;
           git config --global user.email "team@openapitools.org";
           git config --global user.name "OpenAPI Generator community";
-          git commit -a;
+          git add -A;
+          git commit -a -m "Update package to v${{ steps.updated-version.outputs.new-package-version }}";
         shell: bash
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
