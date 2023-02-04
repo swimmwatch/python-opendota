@@ -74,7 +74,7 @@ jobs:
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           base: "dev"
           branch: "update-v${{ steps.updated-version.outputs.new-package-version }}"
           title: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
