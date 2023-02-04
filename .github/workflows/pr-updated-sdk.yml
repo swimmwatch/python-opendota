@@ -82,4 +82,5 @@ jobs:
             enhancement
           body: ${{ needs.diff-spec.outputs.markdown-changes }}
           assignees: "swimmwatch"
+          reviewers: "swimmwatch"
           committer: "GitHub <noreply@github.com>"
