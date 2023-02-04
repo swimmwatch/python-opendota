@@ -77,7 +77,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: "dev"
           branch: "update-v${{ steps.updated-version.outputs.new-package-version }}"
-          title: "Update package v${{ steps.updated-version.outputs.new-package-version }}"
+          title: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
           labels: |
             enhancement
           body: ${{ needs.diff-spec.outputs.markdown-changes }}
