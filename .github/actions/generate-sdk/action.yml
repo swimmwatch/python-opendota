@@ -13,7 +13,9 @@ runs:
   using: "composite"
   steps:
     - name: "Remove previous version"
-      run: rm --recursive --force --verbose python_opendota
+      run: |
+        rm --recursive --force --verbose python_opendota
+        rm --recursive --force --verbose docs
       shell: bash
     - name: "Generate SDK"
       run: utils/generate.sh ${{inputs.package-version}} ${{inputs.spec-path}}
