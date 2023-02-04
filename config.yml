@@ -5,9 +5,9 @@ gitRepoId: "python-opendota"
 gitUserId: "swimmwatch"
 packageUrl: "https://pypi.org/project/python-opendota/"
 files:
-  pyproject.mustache:
+  pyproject.hbs:
     templateType: SupportingFiles
     destinationFilename: pyproject.toml
-  flake8.mustache:
+  flake8.hbs:
     templateType: SupportingFiles
     destinationFilename: .flake8

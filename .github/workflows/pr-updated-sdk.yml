@@ -17,6 +17,14 @@ jobs:
         uses: actions/checkout@v3
       - name: "Download new OpenDota API spec"
         run: wget https://api.opendota.com/api --output-document spec.json
+      - name: "Convert downloaded spec to v3"
+        run: |
+          curl --request POST \
+               --data @spec.json \
+               --header 'Content-Type: application/json' \
+               'https://converter.swagger.io/api/convert' \
+                --output spec.json
+        shell: bash
       - name: "Compare downloaded specification and current"
         uses: swimmwatch/openapi-diff-action@v1.0.1
         id: compare_state
@@ -50,30 +58,35 @@ jobs:
       - name: "Update old specification file"
         run: mv spec.json .openapi-generator/spec.json
       - name: 'Get previous tag'
-        id: previous-tag
-        uses: WyriHaximus/github-action-get-previous-tag@v1
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        id: get-latest-tag
+        uses: actions-ecosystem/action-get-latest-tag@v1
       - name: "Detect appropriate new package version"
         uses: swimmwatch/openapi-diff-semver-bump@v1.0.1
         id: updated-version
         with:
-          package-version: ${{steps.previous-tag.outputs.tag}}
-          updated-state: ${{needs.diff-spec.outputs.state}}
+          package-version: ${{ steps.get-latest-tag.outputs.tag }}
+          updated-state: ${{ needs.diff-spec.outputs.state }}
       - name: "Generate SDK"
         uses: ./.github/actions/generate-sdk
         with:
-          package-version: ${{steps.update-version.outputs.new-package-version}}
+          package-version: ${{ steps.updated-version.outputs.new-package-version }}
           spec-path: ".openapi-generator/spec.json"
+      - name: "Stage changes"
+        run: |
+          sudo chown -R $USER:$USER .git/*;
+        shell: bash
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.PAT }}
           base: "dev"
-          branch: "update-v${{steps.update-version.outputs.new-package-version}}"
-          title: "Update package v${{steps.update-version.outputs.new-package-version}}"
+          branch: "update-v${{ steps.updated-version.outputs.new-package-version }}"
+          title: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
           labels: |
             enhancement
-          body: ${{needs.diff-spec.outputs.markdown-changes}}
+          body: ${{ needs.diff-spec.outputs.markdown-changes }}
           assignees: "swimmwatch"
+          reviewers: "swimmwatch"
           committer: "GitHub <noreply@github.com>"
+          commit-message: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>

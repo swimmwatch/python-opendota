@@ -12,6 +12,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: "Remove previous version"
+      run: |
+        rm --recursive --force --verbose python_opendota
+        rm --recursive --force --verbose docs
+      shell: bash
     - name: "Generate SDK"
       run: utils/generate.sh ${{inputs.package-version}} ${{inputs.spec-path}}
       shell: bash
@@ -22,6 +27,11 @@ runs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.x"
+    - name: Chown generated files
+      run: |
+        sudo chown -R $USER:$USER python_opendota;
+        sudo chown -R $USER:$USER docs;
+      shell: bash
     - name: "Install black and flake8"
       run: pip install -r utils/requirements.txt
       shell: bash
