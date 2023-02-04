@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Setup Python"
         uses: actions/setup-python@v4
       - name: "Setup Poetry"
-        uses: abatilo/actions-poetry@v2.1.5
+        uses: abatilo/actions-poetry@3.7.4
         with:
           poetry-version: "1.1.12"
       - name: "Build package"
