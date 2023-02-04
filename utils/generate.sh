@@ -6,7 +6,7 @@ PACKAGE_VERSION="$1"
 SPEC_PATH="$2"
 
 docker run --rm \
-  -v "${PWD}":/local openapitools/openapi-generator-cli generate \
+  -v "${PWD}":/local openapitools/openapi-generator-cli:v6.3.0 generate \
   --input-spec "/local/$SPEC_PATH" \
   --generator-name python \
   --template-dir /local/custom-template \
