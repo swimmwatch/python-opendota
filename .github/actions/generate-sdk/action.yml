@@ -22,6 +22,9 @@ runs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.x"
+    - name: Chown generated files
+      run: sudo chown -R $USER:$USER python_opendota
+      shell: bash
     - name: "Install black and flake8"
       run: pip install -r utils/requirements.txt
       shell: bash
