@@ -89,5 +89,4 @@ jobs:
           reviewers: "swimmwatch"
           committer: "GitHub <noreply@github.com>"
           commit-message: "Update package to v${{ steps.updated-version.outputs.new-package-version }}"
-          committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
