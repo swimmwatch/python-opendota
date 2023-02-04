@@ -72,7 +72,9 @@ jobs:
           package-version: ${{ steps.updated-version.outputs.new-package-version }}
           spec-path: ".openapi-generator/spec.json"
       - name: "Stage changes"
-        run: git commit -a
+        run: |
+          sudo chown -R $USER:$USER .git/*;
+          git commit -a;
         shell: bash
       - name: "Create PR"
         uses: peter-evans/create-pull-request@v4
