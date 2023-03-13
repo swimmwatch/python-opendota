@@ -61,7 +61,7 @@ jobs:
         id: get-latest-tag
         uses: actions-ecosystem/action-get-latest-tag@v1
       - name: "Detect appropriate new package version"
-        uses: swimmwatch/openapi-diff-semver-bump@v1.0.1
+        uses: swimmwatch/openapi-diff-semver-bump@v1.0.2
         id: updated-version
         with:
           package-version: ${{ steps.get-latest-tag.outputs.tag }}
