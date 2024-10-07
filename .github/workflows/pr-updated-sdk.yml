@@ -38,7 +38,7 @@ jobs:
         with:
           path: "changes.md"
       - name: "Upload downloaded specification for next job"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: "downloaded_spec"
           path: "spec.json"
