@@ -63,7 +63,7 @@ jobs:
           else:
               print('::set-output name=has_changes::false')
       - name: "Commit pyproject template changes"
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         if: ${{steps.modify_state.outputs.has_changes}} == 'true'
         with:
           commit_message: "Update dependencies in pyproject.mustache"
